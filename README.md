@@ -33,10 +33,8 @@ The aim is to provide instant, easy-to-understand interpretations of lab results
 
 1. **Clone the repository**
 
-```bash
-git clone https://github.com/hngprojects/content-creator-todo-fe
-cd content-creator-todo-fe
-```
+git clone https://github.com/hngprojects/Clinical-fe
+cd Clinical-fe
 
 2. **Install dependencies**
 
