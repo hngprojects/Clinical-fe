@@ -1,10 +1,10 @@
-import { env } from "@/env/server";
+import { env } from '@/env/server';
 
-export const dynamic = "force-dynamic";
+export const dynamic = 'force-dynamic';
 
 export function GET() {
   return Response.json({
-    status: "ok",
+    status: 'ok',
     uptime: process.uptime(),
     environment: env.NODE_ENV,
     timestamp: new Date().toISOString(),

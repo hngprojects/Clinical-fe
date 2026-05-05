@@ -1,102 +1,183 @@
-# Next.js Starter
+# CLINSIGHTS — clinical support tool (Next.js)
 
-Next.js 16 + React 19 + Tailwind v4 + shadcn (radix-maia). Validated env, typed proxy, and the standard set of route conventions wired up.
+> **Project:** CLINSIGHTS — is a Nigeria-first digital health platform that helps patients understand their laboratory results instantly using AI — with the option to request an affordable second opinion from verified doctors.
+
+The aim is to provide instant, easy-to-understand interpretations of lab results with optional access to a verified doctor for a second opinion.
+
+---
 
 ## Stack
 
 - **Next.js 16** App Router (`proxy.ts`, `forbidden.tsx`, `unauthorized.tsx`)
 - **React 19**, **TypeScript** (strict)
 - **Tailwind v4** with shadcn `radix-maia` style
+- **Linting & Formatting:** ESLint + Prettier
+- **Git hooks:** Husky (pre-commit for linting & formatting)
 - **`@t3-oss/env-nextjs`** + **Zod 4** for build-time env validation
 
-## Getting started
-
-```bash
-pnpm install
-cp .env.example .env.local   # fill in values
-pnpm dev
-```
-
-Open <http://localhost:3000>.
+---
 
 ## Scripts
 
-| Command            | What it does                              |
-| ------------------ | ----------------------------------------- |
-| `pnpm dev`         | Dev server                                |
-| `pnpm build`       | Production build (validates env)          |
-| `pnpm start`       | Run the production build                  |
-| `pnpm lint`        | ESLint                                    |
-| `pnpm typecheck`   | `tsc --noEmit`                            |
+| Command          | What it does                     |
+| ---------------- | -------------------------------- |
+| `pnpm dev`       | Dev server                       |
+| `pnpm build`     | Production build (validates env) |
+| `pnpm start`     | Run the production build         |
+| `pnpm lint`      | ESLint                           |
+| `pnpm typecheck` | `tsc --noEmit`                   |
 
-## Environment variables
+---
 
-Schemas live in [`src/env/`](./src/env), split by side:
+## 🚀 Local Setup (Next.js)
 
-- [`src/env/server.ts`](./src/env/server.ts) — server-only vars. t3-env throws at runtime if a client component reads it.
-- [`src/env/client.ts`](./src/env/client.ts) — `NEXT_PUBLIC_*` vars, safe everywhere.
+1. **Clone the repository**
 
-Both are imported in [`next.config.ts`](./next.config.ts) so the build fails on any malformed value. Set `SKIP_ENV_VALIDATION=1` to bypass (Docker, lint-only CI).
-
-| Var                     | Side    | Required | Notes                                          |
-| ----------------------- | ------- | -------- | ---------------------------------------------- |
-| `NODE_ENV`              | server  | auto     | `development` / `test` / `production`          |
-| `API_BASE_URL`          | server  | optional | Upstream API for server-side `fetch`           |
-| `API_SECRET`            | server  | optional | Bearer token forwarded server-side             |
-| `NEXT_PUBLIC_APP_URL`   | client  | optional | Defaults to `http://localhost:3000`            |
-| `NEXT_PUBLIC_APP_NAME`  | client  | optional | Defaults to `Next Starter`                     |
-
-Use it like:
-
-```ts
-// Server code (route handlers, Server Components, Server Actions)
-import { env } from "@/env/server";
-
-await fetch(`${env.API_BASE_URL}/users`, {
-  headers: { Authorization: `Bearer ${env.API_SECRET}` },
-});
-
-// Client code or shared metadata
-import { env } from "@/env/client";
-
-console.log(env.NEXT_PUBLIC_APP_URL);
+```bash
+git clone https://github.com/hngprojects/content-creator-todo-fe
+cd content-creator-todo-fe
 ```
 
-## Proxy (`src/proxy.ts`)
+2. **Install dependencies**
 
-Replaces the legacy `middleware.ts` (Next.js 16 renamed it). It runs before the cache and:
+```bash
+pnpm install
+```
 
-- Generates an `x-request-id` and forwards it to the request headers + response
-- Sets baseline security headers (`X-Frame-Options`, `X-Content-Type-Options`, `Referrer-Policy`, `Permissions-Policy`)
-- Skips static assets via the matcher
+3. **Run the dev server**
 
-Add auth gating, rewrites, or redirects there as needed. Note: `runtime` config is **not** allowed in `proxy.ts` — it always runs on Node.js.
+```bash
+pnpm run dev
+```
 
-## Route conventions wired up
+Open [http://localhost:3000](http://localhost:3000) to view the app.
 
-| File                              | Purpose                                  |
-| --------------------------------- | ---------------------------------------- |
-| `src/app/loading.tsx`             | Root suspense fallback                   |
-| `src/app/error.tsx`               | Client error boundary (`unstable_retry`) |
-| `src/app/not-found.tsx`           | 404 page                                 |
-| `src/app/forbidden.tsx`           | 403 page (calls `forbidden()`)           |
-| `src/app/unauthorized.tsx`        | 401 page (calls `unauthorized()`)        |
-| `src/app/robots.ts`               | `/robots.txt`                            |
-| `src/app/sitemap.ts`              | `/sitemap.xml`                           |
-| `src/app/api/health/route.ts`     | Liveness probe at `GET /api/health`      |
+---
 
-`forbidden.tsx` and `unauthorized.tsx` require `experimental.authInterrupts: true`, already enabled in [`next.config.ts`](./next.config.ts).
+### Branch Naming Convention
 
-## Project layout
+All branches should follow a clear naming pattern based on the type of work:
+
+| Type         | Format                   | Example                                          |
+| ------------ | ------------------------ | ------------------------------------------------ |
+| **Feature**  | `feat/feature-name`      | `feat/hero-ui`, `feat/dashboard-chart`           |
+| **Bug Fix**  | `fix/bug-name`           | `fix/login-validation`, `fix/theme-switcher`     |
+| **Chore**    | `chore/chore-name`       | `chore/update-dependencies`, `chore/setup-husky` |
+| **Docs**     | `docs/doc-name`          | `docs/api-documentation`                         |
+| **Test**     | `test/test-name`         | `test/unit-tests-auth`                           |
+| **Refactor** | `refactor/refactor-name` | `refactor/component-structure`                   |
+
+**Guidelines:**
+
+- Use lowercase letters only
+- Use hyphens to separate words (no underscores or spaces)
+- Keep branch names concise but descriptive
+- Delete branches after merging into `main`
+
+### Commit Message Convention
+
+We follow the **Conventional Commits** specification for clear, structured commit messages. This helps with version tracking, changelog generation, and code review.
+
+#### Commit Types
+
+| Type         | Purpose                                           | Example                                              |
+| ------------ | ------------------------------------------------- | ---------------------------------------------------- |
+| **feat**     | A new feature                                     | `feat(auth): add login with Google`                  |
+| **fix**      | A bug fix                                         | `fix(form): resolve validation error on submit`      |
+| **docs**     | Documentation changes                             | `docs(readme): update setup instructions`            |
+| **style**    | Code style changes (formatting, semicolons, etc.) | `style: add missing semicolons`                      |
+| **refactor** | Code refactoring without feature changes          | `refactor(components): extract Hero component logic` |
+| **perf**     | Performance improvements                          | `perf(bundle): reduce bundle size by 15%`            |
+| **test**     | Adding or updating tests                          | `test(auth): add login unit tests`                   |
+| **chore**    | Dependency updates, tooling, etc.                 | `chore(deps): update Next.js to v14`                 |
+| **ci**       | CI/CD configuration changes                       | `ci: add GitHub Actions workflow`                    |
+
+#### Example Commits
+
+**Good ✅**
 
 ```
-src/
-├── app/                # App Router routes & file conventions
-│   └── api/health/     # Liveness probe
-├── components/ui/      # shadcn components (added via `pnpm dlx shadcn@latest add ...`)
-├── lib/utils.ts        # cn() helper
-├── env/
-│   ├── server.ts       # Server-only env schema
-│   └── client.ts       # NEXT_PUBLIC_* env schema
-└── proxy.ts            # Next.js 16 proxy (formerly middleware)
+
+feat(hero): implement hero section with animations
+
 ```
+
+```
+
+fix(nav): resolve mobile menu not closing on link click
+
+```
+
+**Bad ❌**
+
+```
+
+fixed stuff
+updated code
+work in progress
+made changes
+
+```
+
+#### Subject Line Guidelines
+
+- Use imperative mood ("add" not "added" or "adds")
+- Don't capitalize the first letter
+- Don't end with a period
+- Limit to 50 characters
+- Start with the commit type
+
+#### Footer Guidelines
+
+- Reference related issues: `Closes #42`, `Fixes #15`
+- Add breaking changes: `BREAKING CHANGE: description`
+
+### Pull Request Process
+
+1. **Create a feature branch** following the naming convention
+
+   ```bash
+   git checkout -b feat/your-feature-name
+   ```
+
+2. **Commit your changes** with descriptive conventional commit messages
+
+   ```bash
+   git add .
+   git commit -m "feat(component): add new component with props"
+   ```
+
+3. **Push to your branch**
+
+   ```bash
+   git push origin feat/your-feature-name
+   ```
+
+4. **Open a Pull Request** with:
+   - Clear description of what changed and why
+   - Reference to related issues
+   - Screenshots or GIFs if UI changes
+   - Mention any breaking changes
+
+5. **Code Review**
+   - Address review feedback
+   - Keep commits clean and organized
+   - Ensure all CI checks pass
+
+6. **Merge** - Use "Squash and merge" for feature branches to keep history clean
+
+### Code Quality Standards
+
+- **Linting:** All code must pass ESLint checks (`pnpm lint`)
+- **Formatting:** Code must be formatted with Prettier (`pnpm format`)
+- **TypeScript:** Use TypeScript for new components and features
+- **Testing:** Add unit tests for new features (when applicable)
+- **Accessibility:** Follow WCAG guidelines for UI components
+- **Performance:** Minimize bundle size and optimize images
+
+---
+
+### Getting Help
+
+- Check existing issues and PRs before creating a new one
+- Ask questions in pull request comments
