@@ -1,6 +1,8 @@
 import { Header } from '@/components/landing/Header';
 import { Hero } from '@/components/landing/Hero';
 import { Features } from '@/components/landing/Features';
+import { FeaturesGrid } from '@/components/landing/FeaturesGrid';
+import { HowItWorks } from '@/components/landing/HowItWorks';
 
 export default function Home() {
   return (
@@ -9,6 +11,8 @@ export default function Home() {
       <main className="flex-1">
         <Hero />
         <Features />
+        <FeaturesGrid />
+        <HowItWorks />
       </main>
     </div>
   );
