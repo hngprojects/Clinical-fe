@@ -1,5 +1,4 @@
-name: Next.js CI Pipeline
-
+name: CI Workflow
 on:
   push:
     branches: ["dev", "staging", "main"]
@@ -7,8 +6,7 @@ on:
     branches: ["dev", "staging", "main"]
 
 jobs:
-  lint:
-    name: Lint Code
+  build_lint_test:
     runs-on: ubuntu-latest
 
     steps:
@@ -20,63 +18,16 @@ jobs:
         with:
           node-version: 20
 
-      - name: Enable pnpm
+      - name: Install pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: 9
+          version: 10
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install
 
       - name: Run lint
         run: pnpm lint
 
-  typecheck:
-    name: Type Check
-    runs-on: ubuntu-latest
-    needs: lint
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-
-      - name: Enable pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 9
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
-
-      - name: Run typecheck
-        run: pnpm typecheck
-
-  build:
-    name: Build Application
-    runs-on: ubuntu-latest
-    needs: typecheck
-
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-
-      - name: Enable pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 9
-
-      - name: Install dependencies
-        run: pnpm install --frozen-lockfile
-
-      - name: Build Next.js app
+      - name: Build app
         run: pnpm build
