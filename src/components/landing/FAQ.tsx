@@ -42,33 +42,33 @@ const FAQS = [
 
 export function FAQ() {
   return (
-    <section className="bg-[#FFFFFE] py-24">
-      <div className="container mx-auto px-12">
+    <section className="bg-[#FFFFFE] py-16 lg:py-24">
+      <div className="container mx-auto px-6 lg:px-12">
         {/* Section Header */}
-        <div className="mb-16 flex flex-col items-center text-center">
-          <div className="mb-6 flex w-[99px] h-[42px] items-center justify-center gap-2 rounded-[64px] bg-[#E8F0F9] px-4 py-2 text-brand-blue">
+        <div className="mb-12 lg:mb-16 flex flex-col items-center text-center">
+          <div className="mb-6 flex w-fit h-[42px] items-center justify-center gap-2 rounded-[64px] bg-[#E8F0F9] px-4 py-2 text-brand-blue">
             <span className="h-2 w-2 rounded-sm bg-brand-blue" />
-            <span className="text-[16px] font-medium leading-[1.5] tracking-[-0.01em] uppercase">
+            <span className="text-[14px] lg:text-[16px] font-medium leading-[1.5] tracking-[-0.01em] uppercase">
               FAQs
             </span>
           </div>
 
-          <h2 className="mb-6 text-[40px] font-bold leading-tight tracking-tight text-[#1B1B1B]">
+          <h2 className="mb-4 lg:mb-6 text-[32px] lg:text-[40px] font-bold leading-tight tracking-tight text-[#1B1B1B]">
             Frequently Asked Questions
           </h2>
 
-          <p className="max-w-2xl text-[18px] font-normal leading-relaxed text-[#5E5E5E]">
+          <p className="max-w-2xl text-[16px] lg:text-[18px] font-normal leading-relaxed text-[#5E5E5E]">
             Explore answers to common questions about your results, features,
             and how Clinsight supports your care
           </p>
         </div>
 
         {/* FAQ Accordion */}
-        <div className="mx-auto flex flex-col items-center">
+        <div className="mx-auto flex flex-col items-center w-full max-w-2xl">
           <Accordion
             type="single"
             collapsible
-            className="w-[556px] space-y-4 border-none"
+            className="w-full space-y-4 border-none"
           >
             {FAQS.map((faq, index) => (
               <AccordionItem
@@ -76,7 +76,7 @@ export function FAQ() {
                 value={`item-${index}`}
                 className="rounded-[16px] border border-[#D0D0D0] bg-[#FAFAFA] transition-all data-[state=open]:shadow-sm min-h-[64px] flex flex-col justify-center"
               >
-                <AccordionTrigger className="py-2 px-5 text-[18px] font-bold text-[#1B1B1B] hover:no-underline">
+                <AccordionTrigger className="py-2 px-5 text-[16px] lg:text-[18px] font-bold text-[#1B1B1B] hover:no-underline text-left">
                   {faq.question}
                 </AccordionTrigger>
                 <AccordionContent className="px-5 pb-5 text-[14px] font-normal leading-[1.5] tracking-[-0.01em] text-[#5E5E5E]">
