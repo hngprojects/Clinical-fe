@@ -16,7 +16,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-transparent bg-white/80 backdrop-blur-md">
       <div className="container mx-auto flex h-20 items-center justify-between px-12">
-        <Link href="/" className="flex items-center gap-2">
+        <Link href="/" className="flex items-center gap-2 cursor-pointer">
           <div className="relative h-10 w-[140px]">
             <Image
               src="/clinsight-logo.svg"
@@ -33,7 +33,7 @@ export function Header() {
             <Link
               key={link.name}
               href={link.href}
-              className="text-sm font-medium text-slate-600 transition-colors hover:text-brand-blue"
+              className="text-sm font-medium text-slate-600 transition-colors hover:text-brand-blue cursor-pointer"
             >
               {link.name}
             </Link>
