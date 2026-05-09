@@ -1,20 +1,13 @@
 'use client';
 
-import { HugeiconsIcon } from '@hugeicons/react';
-import {
-  AiViewIcon,
-  UserGroupIcon,
-  Note01Icon,
-  AppleIcon,
-  PlayStoreIcon,
-} from '@hugeicons/core-free-icons';
+import Image from 'next/image';
 
 const FEATURES = [
   {
     title: 'AI Analysis',
     description:
       'Advanced intelligent models analyze your lab data with precision, identifying patterns, flagging abnormalities, and breaking down complex values into clear, structured insights you can easily understand.',
-    icon: AiViewIcon,
+    icon: '/assets/bot.svg',
     bgColor: 'bg-[#E8F0F9]',
     iconColor: 'text-[#1565C0]',
   },
@@ -22,7 +15,7 @@ const FEATURES = [
     title: 'Medical Expert Support',
     description:
       'Get guidance from qualified healthcare professionals who help interpret your results, answer your questions, and provide clarity so you can make informed health decisions with confidence.',
-    icon: UserGroupIcon,
+    icon: '/assets/doctor.svg',
     bgColor: 'bg-[#FEF0DA]',
     iconColor: 'text-[#F59E0B]',
   },
@@ -30,7 +23,7 @@ const FEATURES = [
     title: 'Actionable Insights',
     description:
       'Move beyond confusing laboratory data with insights specifically tailored to your results. This would include what each value means, what requires attention, and practical next steps to support your health.',
-    icon: Note01Icon,
+    icon: '/assets/notepad.svg',
     bgColor: 'bg-[#DEF6E7]',
     iconColor: 'text-[#10B981]',
   },
@@ -63,20 +56,30 @@ export function Features() {
             </p>
 
             <div className="flex items-center gap-4 lg:ml-auto lg:w-full lg:max-w-md lg:justify-start">
-              {/* TODO: Replace with App Store SVG */}
-              <button className="flex items-center gap-2 rounded-lg bg-black px-4 py-2 text-white transition-opacity hover:opacity-80">
-                <HugeiconsIcon icon={AppleIcon} size={20} />
-                <div className="flex flex-col items-start leading-none">
+              {/* App Store Button with SVG Asset */}
+              <button className="flex w-[180px] h-[55px] items-center gap-2 rounded-[12px] bg-[#1B1B1B] px-6 py-2 text-white transition-opacity hover:opacity-80 cursor-pointer">
+                <Image
+                  src="/assets/apple-icon.svg"
+                  alt="App Store"
+                  width={20}
+                  height={20}
+                />
+                <div className="flex flex-col items-start leading-none gap-1">
                   <span className="text-[10px] opacity-70">
                     Available on the
                   </span>
                   <span className="text-sm font-bold">App Store</span>
                 </div>
               </button>
-              {/* TODO: Replace with Google Play SVG */}
-              <button className="flex items-center gap-2 rounded-lg bg-black px-4 py-2 text-white transition-opacity hover:opacity-80">
-                <HugeiconsIcon icon={PlayStoreIcon} size={20} />
-                <div className="flex flex-col items-start leading-none">
+              {/* Google Play Button with SVG Asset */}
+              <button className="flex w-[180px] h-[55px] items-center gap-2 rounded-[12px] bg-[#1B1B1B] px-6 py-2 text-white transition-opacity hover:opacity-80 cursor-pointer">
+                <Image
+                  src="/assets/google-play icon.svg"
+                  alt="Google Play"
+                  width={20}
+                  height={20}
+                />
+                <div className="flex flex-col items-start leading-none gap-1">
                   <span className="text-[10px] opacity-70">Get it on</span>
                   <span className="text-sm font-bold">Google Play</span>
                 </div>
@@ -92,11 +95,15 @@ export function Features() {
               key={feature.title}
               className="flex h-[375px] flex-col gap-6 rounded-[24px] border border-slate-50 bg-white p-4 shadow-sm transition-shadow hover:shadow-md"
             >
-              {/* TODO: Change the icons or the container card as needed */}
               <div
-                className={`flex h-[148px] w-full items-center justify-center rounded-2xl ${feature.bgColor} ${feature.iconColor} px-[128px] py-8`}
+                className={`flex h-[148px] w-full items-center justify-center rounded-2xl ${feature.bgColor} px-[128px] py-8`}
               >
-                <HugeiconsIcon icon={feature.icon} size={32} />
+                <Image
+                  src={feature.icon}
+                  alt={feature.title}
+                  width={32}
+                  height={32}
+                />
               </div>
               <div className="flex flex-col gap-6 px-4 pb-4">
                 <h3 className="text-xl font-bold text-[#1B1B1B]">
