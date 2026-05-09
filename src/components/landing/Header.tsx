@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 
 const NAV_LINKS = [
@@ -16,13 +17,15 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full border-b border-transparent bg-white/80 backdrop-blur-md">
       <div className="container mx-auto flex h-20 items-center justify-between px-12">
         <Link href="/" className="flex items-center gap-2">
-          {/* TODO: Replace with actual logo image asset */}
-          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-blue text-lg font-bold text-white">
-            C
+          <div className="relative h-10 w-[140px]">
+            <Image
+              src="/clinsight-logo.svg"
+              alt="Clinsight Logo"
+              fill
+              className="object-contain object-left"
+              priority
+            />
           </div>
-          <span className="text-2xl font-bold tracking-tight text-slate-900">
-            Clinsight
-          </span>
         </Link>
 
         <nav className="hidden items-center gap-8 lg:flex">
