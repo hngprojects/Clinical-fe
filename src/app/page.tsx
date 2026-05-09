@@ -4,6 +4,8 @@ import { Features } from '@/components/landing/Features';
 import { FeaturesGrid } from '@/components/landing/FeaturesGrid';
 import { HowItWorks } from '@/components/landing/HowItWorks';
 import { FAQ } from '@/components/landing/FAQ';
+import { MedicalProfessional } from '@/components/landing/MedicalProfessional';
+import { Footer } from '@/components/landing/Footer';
 
 export default function Home() {
   return (
@@ -15,7 +17,9 @@ export default function Home() {
         <FeaturesGrid />
         <HowItWorks />
         <FAQ />
+        <MedicalProfessional />
       </main>
+      <Footer />
     </div>
   );
 }
