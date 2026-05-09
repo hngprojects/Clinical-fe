@@ -43,33 +43,34 @@ const GRID_FEATURES = [
 
 export function FeaturesGrid() {
   return (
-    <section className="relative overflow-hidden bg-[#11519A] py-24 text-white">
+    <section className="relative overflow-hidden bg-[#11519A] py-16 lg:py-24 text-white">
       {/* Background Design SVG - Top Right */}
-      <div className="absolute top-0 right-0 pointer-events-none z-0">
+      <div className="absolute top-0 right-0 pointer-events-none z-0 opacity-50 lg:opacity-100">
         <Image
           src="/assets/section-design.svg"
           alt=""
           width={400}
           height={500}
+          className="w-[200px] lg:w-[400px]"
         />
       </div>
 
-      <div className="container mx-auto px-12 relative z-10">
+      <div className="container mx-auto px-6 lg:px-12 relative z-10">
         {/* Section Header */}
-        <div className="mb-20 flex flex-col items-center text-center">
-          <div className="mb-10 flex w-[220px] h-[42px] items-center justify-center gap-2 rounded-[64px] bg-[#FFFFFE14] px-4 py-2 text-white">
+        <div className="mb-12 lg:mb-20 flex flex-col items-center text-center">
+          <div className="mb-6 lg:mb-10 flex w-fit h-auto items-center justify-center gap-2 rounded-[64px] bg-[#FFFFFE14] px-4 py-2 text-white">
             <span className="h-2 w-2 rounded-sm bg-white" />
-            <span className="text-xs font-bold uppercase tracking-wider">
+            <span className="text-[10px] lg:text-xs font-bold uppercase tracking-wider">
               Clarity, End to End
             </span>
           </div>
 
-          <h2 className="mb-6 max-w-3xl text-[48px] font-bold leading-tight tracking-tight">
-            Everything You Need <br />
+          <h2 className="mb-4 lg:mb-6 max-w-3xl text-[32px] lg:text-[48px] font-bold leading-tight tracking-tight">
+            Everything You Need <br className="hidden lg:block" />
             to <span className="text-[#F59E0B]">Understand</span> Your Results
           </h2>
 
-          <p className="max-w-2xl text-[18px] font-normal leading-[1.5] tracking-[-0.01em] text-[#FFFFFE]">
+          <p className="max-w-2xl text-[16px] lg:text-[18px] font-normal leading-[1.5] tracking-[-0.01em] text-[#FFFFFE]">
             Clinsight transforms complex laboratory data into structured,
             easy-to-understand insights using AI, with optional doctor
             validation for added confidence.
@@ -77,11 +78,11 @@ export function FeaturesGrid() {
         </div>
 
         {/* Features Grid - 6 individual cards with #1B1B1B52 bg and left border */}
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-4 lg:gap-6 md:grid-cols-2 lg:grid-cols-3">
           {GRID_FEATURES.map((feature) => (
             <div
               key={feature.title}
-              className="flex h-[231px] flex-col gap-5 border-l-2 border-[#FFFFFE] bg-[#1B1B1B52] p-8"
+              className="flex h-auto min-h-[180px] lg:h-[231px] flex-col gap-4 lg:gap-5 border-l-2 border-[#FFFFFE] bg-[#1B1B1B52] p-6 lg:p-8"
             >
               <div className="flex h-6 w-6 items-center justify-center">
                 <Image
@@ -91,9 +92,11 @@ export function FeaturesGrid() {
                   height={24}
                 />
               </div>
-              <div className="flex flex-col gap-3">
-                <h3 className="text-xl font-bold">{feature.title}</h3>
-                <p className="text-sm leading-relaxed opacity-70">
+              <div className="flex flex-col gap-2 lg:gap-3">
+                <h3 className="text-lg lg:text-xl font-bold">
+                  {feature.title}
+                </h3>
+                <p className="text-[13px] lg:text-sm leading-relaxed opacity-70">
                   {feature.description}
                 </p>
               </div>
