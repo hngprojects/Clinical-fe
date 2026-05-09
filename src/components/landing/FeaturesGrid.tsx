@@ -57,7 +57,7 @@ export function FeaturesGrid() {
 
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
         {/* Section Header */}
-        <div className="mb-12 lg:mb-20 flex flex-col items-center text-center">
+        <div className="mb-12 lg:mb-20 flex flex-col items-start lg:items-center text-left lg:text-center">
           <div className="mb-6 lg:mb-10 flex w-fit h-auto items-center justify-center gap-2 rounded-[64px] bg-[#FFFFFE14] px-4 py-2 text-white">
             <span className="h-2 w-2 rounded-sm bg-white" />
             <span className="text-[10px] lg:text-xs font-bold uppercase tracking-wider">
@@ -66,8 +66,8 @@ export function FeaturesGrid() {
           </div>
 
           <h2 className="mb-4 lg:mb-6 max-w-3xl text-[32px] lg:text-[48px] font-bold leading-tight tracking-tight">
-            Everything You Need <br className="hidden lg:block" />
-            to <span className="text-[#F59E0B]">Understand</span> Your Results
+            Everything You Need to{' '}
+            <span className="text-[#F59E0B]">Understand</span> Your Results
           </h2>
 
           <p className="max-w-2xl text-[16px] lg:text-[18px] font-normal leading-[1.5] tracking-[-0.01em] text-[#FFFFFE]">

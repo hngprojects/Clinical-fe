@@ -45,7 +45,7 @@ export function FAQ() {
     <section className="bg-[#FFFFFE] py-16 lg:py-24">
       <div className="container mx-auto px-6 lg:px-12">
         {/* Section Header */}
-        <div className="mb-12 lg:mb-16 flex flex-col items-center text-center">
+        <div className="mb-12 lg:mb-16 flex flex-col items-start lg:items-center text-left lg:text-center">
           <div className="mb-6 flex w-fit h-[42px] items-center justify-center gap-2 rounded-[64px] bg-[#E8F0F9] px-4 py-2 text-brand-blue">
             <span className="h-2 w-2 rounded-sm bg-brand-blue" />
             <span className="text-[14px] lg:text-[16px] font-medium leading-[1.5] tracking-[-0.01em] uppercase">
