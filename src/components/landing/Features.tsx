@@ -36,7 +36,7 @@ export function Features() {
         {/* Section Header */}
         <div className="mb-16 grid grid-cols-1 gap-8 lg:grid-cols-2">
           <div className="flex flex-col gap-20">
-            <div className="flex items-center gap-2">
+            <div className="flex w-fit items-center gap-2 rounded-full bg-[#FFFFFE] px-4 py-2  border-slate-50">
               <span className="h-2 w-2 rounded-sm bg-[#F59E0B]" />
               <span className="text-xs font-bold text-[#F59E0B] uppercase tracking-wider">
                 Clarity, simplified
@@ -49,7 +49,7 @@ export function Features() {
           </div>
 
           <div className="flex flex-col gap-6 lg:items-start lg:justify-end">
-            <p className="max-w-md text-[18px] font-normal leading-[1.5] tracking-[-0.01em] text-[#5E5E5E] lg:ml-auto text-left">
+            <p className="max-w-lg text-[18px] font-normal leading-[1.5] tracking-[-0.01em] text-[#5E5E5E] lg:ml-auto text-left">
               Clinsight transforms complex laboratory data into structured,
               easy-to-understand insights using AI, with optional doctor
               validation for added confidence.
