@@ -5,11 +5,8 @@ import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 
 const NAV_LINKS = [
-  { name: 'Features', href: '#features' },
+  { name: 'About', href: '#about' },
   { name: 'How It Works', href: '#how-it-works' },
-  { name: 'FAQs', href: '#faqs' },
-  { name: 'Become a Doctor', href: '#become-a-doctor' },
-  { name: 'Why It Matters', href: '#why-it-matters' },
 ];
 
 export function Header() {
@@ -41,16 +38,23 @@ export function Header() {
         </nav>
 
         <div className="flex items-center gap-4">
-          <Button
-            variant="outline"
-            className="hidden rounded-md border-brand-blue bg-[#FFFFFE] px-6 font-semibold text-brand-blue hover:bg-[#FFFFFE] sm:flex"
-          >
-            Log In
-          </Button>
-
-          <Button className="rounded-md bg-brand-blue px-6 font-semibold text-white hover:bg-brand-blue">
-            Get Started
-          </Button>
+          <button className="flex w-[226px] h-[46.1px] items-center justify-center gap-4 rounded-[12px] border border-[#D0D0D0] bg-[#FFFFFE] px-4 py-3 text-xs font-bold text-slate-900 transition-all hover:bg-slate-50 cursor-pointer">
+            <div className="flex items-center gap-2">
+              <Image
+                src="/assets/google-play icon.svg"
+                alt=""
+                width={18}
+                height={18}
+              />
+              <Image
+                src="/assets/apple-icon.svg"
+                alt=""
+                width={18}
+                height={18}
+              />
+            </div>
+            <span>Download Clinsight</span>
+          </button>
         </div>
       </div>
     </header>
