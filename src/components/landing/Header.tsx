@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useState } from 'react';
 import { HugeiconsIcon } from '@hugeicons/react';
-import { Menu01Icon, Cancel01Icon } from '@hugeicons/core-free-icons';
+import { Cancel01Icon } from '@hugeicons/core-free-icons';
 
 const NAV_LINKS = [
   { name: 'About', href: '#about' },
