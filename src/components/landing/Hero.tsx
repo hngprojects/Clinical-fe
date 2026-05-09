@@ -46,14 +46,14 @@ export function Hero() {
             </div>
 
             <div className="flex flex-col gap-3">
-              <h1 className="text-[52px] font-bold leading-[1.2] tracking-[-0.02em] text-[#1B1B1B]">
+              <h1 className="text-[48px] font-bold leading-[1.2] tracking-[-0.02em] text-[#1B1B1B]">
                 Understand Your Laboratory Results
               </h1>
-              <h1 className="text-[52px] font-bold leading-[1.2] tracking-[-0.02em] text-[#1B1B1B]">
-                in{' '}
+              <h1 className="text-[48px] font-bold leading-[1.2] tracking-[-0.02em] text-[#1B1B1B]">
+                right now{' '}
                 <span className="relative inline-block px-3 text-white">
                   <span className="absolute inset-0 -skew-x-2 rounded bg-brand-blue" />
-                  <span className="relative">Seconds.</span>
+                  <span className="relative">No Waitiing!</span>
                 </span>
               </h1>
             </div>
@@ -174,7 +174,7 @@ export function Hero() {
                 {/* CTA Button */}
                 <div className="z-20 mt-4 w-full">
                   <Button className="w-full rounded-xl bg-brand-blue py-7 text-sm font-bold text-white shadow-lg hover:bg-brand-blue transition-all">
-                    Continue with a Doctor
+                    Get Started
                     <HugeiconsIcon
                       icon={ArrowRight02Icon}
                       size={18}
