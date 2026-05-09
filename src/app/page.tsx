@@ -3,6 +3,7 @@ import { Hero } from '@/components/landing/Hero';
 import { Features } from '@/components/landing/Features';
 import { FeaturesGrid } from '@/components/landing/FeaturesGrid';
 import { HowItWorks } from '@/components/landing/HowItWorks';
+import { FAQ } from '@/components/landing/FAQ';
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
         <Features />
         <FeaturesGrid />
         <HowItWorks />
+        <FAQ />
       </main>
     </div>
   );
