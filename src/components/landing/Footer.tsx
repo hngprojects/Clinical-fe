@@ -22,20 +22,20 @@ const FOOTER_LINKS = {
 export function Footer() {
   return (
     <footer className="relative overflow-hidden bg-[#11519A] pt-12 pb-10 text-white">
-      {/* Background Image Asset - Right Side */}
-      <div className="absolute top-0 right-0 h-full w-1/2 pointer-events-none z-0">
+      {/* Background Image Asset - Left Side */}
+      <div className="absolute top-0 left-0 h-full w-full lg:w-1/2 pointer-events-none z-0 opacity-40 lg:opacity-100">
         <Image
           src="/assets/footer-bg-image.svg"
           alt=""
           fill
-          className="object-cover object-right"
+          className="object-cover object-left"
         />
       </div>
 
-      <div className="container mx-auto px-12 relative z-10">
+      <div className="container mx-auto px-6 lg:px-12 relative z-10">
         {/* Tier 1: Logo only */}
-        <div className="mb-8">
-          <div className="relative h-10 w-[140px]">
+        <div className="mb-8 flex justify-start">
+          <div className="relative h-8 w-[120px] lg:h-10 lg:w-[140px]">
             <Image
               src="/clinsight-logo.svg"
               alt="Clinsight Logo"
@@ -46,25 +46,28 @@ export function Footer() {
         </div>
 
         {/* Separator Line */}
-        <div className="border-t border-white/10 w-full mb-12" />
+        <div className="border-t border-white/10 w-full mb-8 lg:mb-12" />
 
         {/* Tier 2: Text on Left, 3 Columns of Links on Right */}
-        <div className="flex flex-col gap-16 lg:flex-row lg:justify-between items-start">
+        <div className="flex flex-col gap-12 lg:flex-row lg:justify-between items-start text-left">
           {/* Left: Brand Description */}
-          <div className="flex flex-col gap-6 max-w-sm text-left">
-            <p className="text-sm leading-relaxed opacity-80">
+          <div className="flex flex-col gap-6 max-w-sm">
+            <p className="text-[14px] leading-relaxed opacity-80">
               Clinsight helps you turns complex medical reports into clear,
               simple explanations you can actually understand.
             </p>
           </div>
 
+          {/* Mobile Separator between Description and Links */}
+          <div className="border-t border-white/10 w-full lg:hidden" />
+
           {/* Right: Links Grid (3 Columns) - 40px gap */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-12 lg:gap-10">
-            <div className="flex flex-col gap-6">
-              <h4 className="text-sm font-bold uppercase tracking-wider text-nowrap">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 lg:gap-10 w-full lg:w-auto">
+            <div className="flex flex-col gap-4 lg:gap-6">
+              <h4 className="text-sm font-bold uppercase tracking-wider">
                 Platform
               </h4>
-              <ul className="flex flex-col gap-6 text-nowrap">
+              <ul className="flex flex-col gap-3 lg:gap-6">
                 {FOOTER_LINKS.platform.map((link) => (
                   <li key={link.name}>
                     <Link
@@ -77,11 +80,11 @@ export function Footer() {
                 ))}
               </ul>
             </div>
-            <div className="flex flex-col gap-6">
-              <h4 className="text-sm font-bold uppercase tracking-wider text-nowrap">
+            <div className="flex flex-col gap-4 lg:gap-6">
+              <h4 className="text-sm font-bold uppercase tracking-wider">
                 Company
               </h4>
-              <ul className="flex flex-col gap-6 text-nowrap">
+              <ul className="flex flex-col gap-3 lg:gap-6">
                 {FOOTER_LINKS.company.map((link) => (
                   <li key={link.name}>
                     <Link
@@ -94,11 +97,11 @@ export function Footer() {
                 ))}
               </ul>
             </div>
-            <div className="flex flex-col gap-6">
-              <h4 className="text-sm font-bold uppercase tracking-wider text-nowrap">
+            <div className="flex flex-col gap-4 lg:gap-6">
+              <h4 className="text-sm font-bold uppercase tracking-wider">
                 Legal
               </h4>
-              <ul className="flex flex-col gap-6 text-nowrap">
+              <ul className="flex flex-col gap-3 lg:gap-6">
                 {FOOTER_LINKS.legal.map((link) => (
                   <li key={link.name}>
                     <Link
@@ -115,11 +118,11 @@ export function Footer() {
         </div>
 
         {/* Separator Line */}
-        <div className="border-t border-white/10 w-full mt-20 mb-8" />
+        <div className="border-t border-white/10 w-full mt-12 lg:mt-20 mb-8" />
 
         {/* Tier 3: All rights reserved - Left aligned with dynamic year */}
-        <div className="flex items-center lg:justify-start text-left">
-          <p className="text-xs opacity-50">
+        <div className="flex items-center justify-start">
+          <p className="text-[10px] lg:text-xs opacity-50">
             ©{new Date().getFullYear()}. All Rights Reserved
           </p>
         </div>
