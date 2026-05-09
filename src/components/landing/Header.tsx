@@ -2,7 +2,9 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { Button } from '@/components/ui/button';
+import { useState } from 'react';
+import { HugeiconsIcon } from '@hugeicons/react';
+import { Menu01Icon, Cancel01Icon } from '@hugeicons/core-free-icons';
 
 const NAV_LINKS = [
   { name: 'About', href: '#about' },
@@ -10,11 +12,13 @@ const NAV_LINKS = [
 ];
 
 export function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-transparent bg-white/80 backdrop-blur-md">
-      <div className="container mx-auto flex h-20 items-center justify-between px-12">
+    <header className="sticky top-0 z-50 w-full border-b border-[#F5F5F5] bg-white">
+      <div className="container mx-auto flex h-20 items-center justify-between px-6 lg:px-12">
         <Link href="/" className="flex items-center gap-2 cursor-pointer">
-          <div className="relative h-10 w-[140px]">
+          <div className="relative h-8 w-[120px] lg:h-10 lg:w-[140px]">
             <Image
               src="/clinsight-logo.svg"
               alt="Clinsight Logo"
@@ -25,6 +29,7 @@ export function Header() {
           </div>
         </Link>
 
+        {/* Desktop Navigation */}
         <nav className="hidden items-center gap-8 lg:flex">
           {NAV_LINKS.map((link) => (
             <Link
@@ -37,7 +42,8 @@ export function Header() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-4">
+        {/* Desktop Download Button */}
+        <div className="hidden lg:flex items-center gap-4">
           <button className="flex w-[226px] h-[46.1px] items-center justify-center gap-4 rounded-[12px] border border-[#D0D0D0] bg-[#FFFFFE] px-4 py-3 text-xs font-bold text-slate-900 transition-all hover:bg-slate-50 cursor-pointer">
             <div className="flex items-center gap-2">
               <Image
@@ -56,7 +62,73 @@ export function Header() {
             <span>Download Clinsight</span>
           </button>
         </div>
+
+        {/* Mobile Menu Toggle */}
+        <button
+          className="flex lg:hidden items-center justify-center p-2 text-slate-900"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
+          {isMenuOpen ? (
+            <HugeiconsIcon icon={Cancel01Icon} size={24} />
+          ) : (
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M4 8H20"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+              />
+              <path
+                d="M10 16H20"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+              />
+            </svg>
+          )}
+        </button>
       </div>
+
+      {/* Mobile Menu */}
+      {isMenuOpen && (
+        <div className="absolute top-20 left-0 right-0 z-40 border-b border-[#F5F5F5] bg-white p-6 shadow-xl lg:hidden">
+          <nav className="flex flex-col gap-6">
+            {NAV_LINKS.map((link) => (
+              <Link
+                key={link.name}
+                href={link.href}
+                className="text-lg font-medium text-slate-900"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {link.name}
+              </Link>
+            ))}
+            <button className="flex w-full h-[56px] items-center justify-center gap-4 rounded-[12px] border border-[#D0D0D0] bg-[#FFFFFE] px-4 py-3 text-sm font-bold text-slate-900 transition-all hover:bg-slate-50">
+              <div className="flex items-center gap-2">
+                <Image
+                  src="/assets/google-play icon.svg"
+                  alt=""
+                  width={24}
+                  height={24}
+                />
+                <Image
+                  src="/assets/apple-icon.svg"
+                  alt=""
+                  width={24}
+                  height={24}
+                />
+              </div>
+              <span>Download Clinsight</span>
+            </button>
+          </nav>
+        </div>
+      )}
     </header>
   );
 }
