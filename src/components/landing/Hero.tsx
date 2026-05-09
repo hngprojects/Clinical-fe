@@ -78,8 +78,16 @@ export function Hero() {
                   priority
                 />
               </div>
-
-              {/* Dashboard Content - Centered in the circle */}
+              {/* Floating File Icon - Enlarged and moved further out */}
+              <div className="absolute bottom-[8%] right-[5%] z-20 w-20 h-20 flex items-center justify-center">
+                <Image
+                  src="/assets/file.svg"
+                  alt="File icon"
+                  width={64}
+                  height={64}
+                />
+              </div>
+              {/* Dashboard Content - Centered in the circle */}{' '}
               <div className="relative flex flex-col items-center gap-0 z-10 w-full max-w-[380px]">
                 {/* User Reports Sidebar */}
                 <div className="absolute -left-6 top-0 bottom-0 z-20 flex w-[84px] flex-col gap-2 rounded-xl bg-white p-2 shadow-lg ring-1 ring-slate-100 transform -translate-x-full">
