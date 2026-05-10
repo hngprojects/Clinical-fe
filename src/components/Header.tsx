@@ -7,6 +7,7 @@ import { HugeiconsIcon } from '@hugeicons/react';
 import { Cancel01Icon } from '@hugeicons/core-free-icons';
 
 const NAV_LINKS = [
+  { name: 'Home', href: '/' },
   { name: 'About', href: '#about' },
   { name: 'How It Works', href: '#how-it-works' },
 ];
