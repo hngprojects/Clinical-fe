@@ -41,7 +41,7 @@ export function MedicalProfessional() {
 
           {/* Right Visual (side-image) */}
           <div className="flex flex-1 items-center justify-start lg:justify-end">
-            <div className="relative h-[300px] lg:h-[400px] w-full max-w-[500px] rotate-[347deg] scale-110">
+            <div className="relative h-[250px] w-full max-w-[400px] lg:h-[304px] lg:w-[500px] lg:max-w-none rotate-[347deg] lg:rotate-0 rounded-[24px] p-6 lg:p-0">
               <Image
                 src="/side-image.png"
                 alt="Medical professional visual"
