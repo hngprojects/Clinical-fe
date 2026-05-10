@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 
 export function MedicalProfessional() {
   return (
-    <section className="bg-[#E8F0F9] py-16 lg:py-24">
+    <section className="bg-[#E8F0F9] py-16 lg:py-24 overflow-x-hidden">
       <div className="container mx-auto px-6 lg:px-12">
         <div className="flex flex-col gap-12 lg:gap-16 lg:flex-row lg:items-center lg:justify-between relative z-10">
           {/* Left Content */}
