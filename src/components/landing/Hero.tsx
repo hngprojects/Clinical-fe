@@ -20,6 +20,7 @@ export function Hero() {
                     src="/Clinsight-Users/handsome-man.jpg"
                     alt="User"
                     fill
+                    sizes="24px"
                     className="object-cover"
                   />
                 </div>
@@ -28,6 +29,7 @@ export function Hero() {
                     src="/User-Report-Images/successful-entrepreneur.png"
                     alt="User"
                     fill
+                    sizes="24px"
                     className="object-cover"
                   />
                 </div>
@@ -36,6 +38,7 @@ export function Hero() {
                     src="/Clinsight-Users/curly-haired-woman.jpg"
                     alt="User"
                     fill
+                    sizes="24px"
                     className="object-cover"
                   />
                 </div>
@@ -74,6 +77,7 @@ export function Hero() {
                   src="/assets/outer-inner-circle.svg"
                   alt=""
                   fill
+                  sizes="(max-width: 1024px) 320px, 540px"
                   className="object-contain"
                   priority
                 />

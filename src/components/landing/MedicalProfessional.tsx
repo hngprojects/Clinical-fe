@@ -16,6 +16,7 @@ export function MedicalProfessional() {
                 src="/bulb.png"
                 alt="Innovation icon"
                 fill
+                sizes="(max-width: 1024px) 48px, 64px"
                 className="object-contain"
               />
             </div>

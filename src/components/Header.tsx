@@ -24,6 +24,7 @@ export function Header() {
               src="/clinsight-logo.svg"
               alt="Clinsight Logo"
               fill
+              sizes="(max-width: 1024px) 120px, 140px"
               className="object-contain object-left"
               priority
             />
