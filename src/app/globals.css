@@ -160,7 +160,7 @@
     @apply list-disc text-secondary-3 text-sm md:text-base;
   }
 
-  .seperator {
+  .separator {
     @apply w-full h-px bg-outline-border-subtle;
   }
 }

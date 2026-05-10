@@ -57,8 +57,8 @@ function AnimatedList({ items }: { items: string[] }) {
       whileInView="visible"
       viewport={{ once: true, margin: '-8%' }}
     >
-      {items.map((item) => (
-        <motion.li key={item} variants={listItemVariants}>
+      {items.map((item, idx) => (
+        <motion.li key={idx} variants={listItemVariants}>
           {item}
         </motion.li>
       ))}
@@ -69,7 +69,7 @@ function AnimatedList({ items }: { items: string[] }) {
 function AnimatedSeparator() {
   return (
     <motion.div
-      className="seperator"
+      className="separator"
       style={{ transformOrigin: 'left' }}
       initial={{ scaleX: 0 }}
       whileInView={{ scaleX: 1 }}

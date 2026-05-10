@@ -3,7 +3,10 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import type { Variants } from 'framer-motion';
-import { HEADERBACKGROUND_PATTERN } from '@/lib/constants';
+import {
+  HEADERBACKGROUND_PATTERN,
+  PRIVACY_POLICY_LAST_UPDATE,
+} from '@/lib/constants';
 
 const headerTextVariants: Variants = {
   hidden: { opacity: 0 },
@@ -32,9 +35,8 @@ export default function PrivacyPolicyHeader() {
         <Image
           key={pattern.type}
           src={pattern.src}
-          alt="Privacy Policy Header Pattern"
+          alt=""
           quality={75}
-          priority
           fill
           className={`object-cover ${pattern.visibility}`}
         />
@@ -57,7 +59,7 @@ export default function PrivacyPolicyHeader() {
           className="font-medium leading-6 tracking-[-0.16px] text-white"
           variants={headerItemVariants}
         >
-          Last Updated, May 2026
+          Last Updated, {PRIVACY_POLICY_LAST_UPDATE}
         </motion.p>
       </motion.div>
     </header>

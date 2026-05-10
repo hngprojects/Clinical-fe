@@ -1,6 +1,8 @@
 import HeaderBackgroundPatternDesktop from '@public/circle-bg-web.png';
 import HeaderBackgroundPatternMobile from '@public/circle-bg.png';
 
+export const PRIVACY_POLICY_LAST_UPDATE = 'May 2026';
+
 export const HEADERBACKGROUND_PATTERN = [
   {
     type: 'mobile',
@@ -69,7 +71,7 @@ export const COOKIES = {
   uses: [
     'Enhance your experience on our platform',
     'Remember your preferences',
-    'Analyse how users interact with our services',
+    'Analyze how users interact with our services',
   ],
 
   footerContent:

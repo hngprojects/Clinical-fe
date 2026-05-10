@@ -1,5 +1,5 @@
-import PrivacyPolicyHeader from '@/components/PrivacyPolicyHeader';
-import PrivacyPolicyContent from '@/components/PrivacyPolicyContent';
+import PrivacyPolicyHeader from '@/components/privacy-policy/PrivacyPolicyHeader';
+import PrivacyPolicyContent from '@/components/privacy-policy/PrivacyPolicyContent';
 import { Metadata } from 'next';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
@@ -11,11 +11,11 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <div>
+    <main>
       <Header />
       <PrivacyPolicyHeader />
       <PrivacyPolicyContent />
       <Footer />
-    </div>
+    </main>
   );
 }
