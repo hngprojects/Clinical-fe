@@ -53,7 +53,7 @@ const ImgBlock = ({
   style?: React.CSSProperties;
   image?: StaticImageData;
 }) => (
-  <Image
+  <img
     src={typeof image === "string" ? image : image?.src || ""}
     alt=""
     style={style}
@@ -93,7 +93,7 @@ export default function AboutPage() {
         {/* ── Hero ─────────────────────────────────────────────────────────── */}
         <section
           className="text-center mx-auto flex items-center justify-center flex-col"
-          style={{ maxWidth: "842px", gap: "56px" }}
+          style={{ maxWidth: "842px", gap: "56px", margin: "0 auto" }}
         >
           {/* heroTop */}
           <div className="flex items-start justify-start flex-col" style={{ gap: "10px" }}>
@@ -116,7 +116,13 @@ export default function AboutPage() {
               </span>
             </h1>
 
-            <Image src={Icon1.src} alt="Hero icon" />
+            <div style={{ width: "100%", height: "100%", position: "relative" }}>
+              <img
+                src={Icon1}
+                alt="Hero icon"
+                style={{ objectFit: "contain" }}
+              />
+            </div>
           </div>
 
           {/* heroSubtext */}
@@ -135,7 +141,7 @@ export default function AboutPage() {
         {/* ── Our Story ────────────────────────────────────────────────────── */}
         <section
           className="story-section flex items-center justify-between flex-wrap mx-auto"
-          style={{ maxWidth: "1280px", gap: "50px" }}
+          style={{ maxWidth: "1280px", gap: "50px", margin: "0 auto" }}
         >
           {/* storyContent */}
           <div
@@ -228,7 +234,7 @@ export default function AboutPage() {
                 className="flex items-center justify-center bg-[#E8F0F9]"
                 style={{ width: "66px", height: "66px", borderRadius: "13px", padding: "13px" }}
               >
-                <Image
+                <img
                   src={SpiralIcon.src}
                   alt="Spiral icon"
                   style={{ width: "32.5px", height: "32.5px" }}
@@ -277,7 +283,7 @@ export default function AboutPage() {
                 className="flex items-center justify-center bg-[#DEF6E7]"
                 style={{ width: "66px", height: "66px", borderRadius: "13px", padding: "13px" }}
               >
-                <Image
+                <img
                   src={EyeIcon.src}
                   alt="Eye icon"
                   style={{ width: "32.5px", height: "32.5px" }}
@@ -355,7 +361,7 @@ export default function AboutPage() {
                 letterSpacing: "-2%",
               }}
             >
-              <Image
+              <img
                 src={Icon4.src}
                 alt="icon"
                 style={{ transform: "translateY(-20px)" }}
@@ -392,7 +398,7 @@ export default function AboutPage() {
                     backgroundColor: v.bg,
                   }}
                 >
-                  <Image
+                  <img
                     src={v.icon.src}
                     alt={v.title}
                     style={{ width: "25px", height: "25px" }}
