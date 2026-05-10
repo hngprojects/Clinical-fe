@@ -85,6 +85,7 @@ export default function TermsAndConditions() {
       ],
     },
   ];
+
   return (
     <div className="flex min-h-screen flex-col bg-white font-sans">
       <Header />

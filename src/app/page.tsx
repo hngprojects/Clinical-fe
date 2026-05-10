@@ -20,6 +20,7 @@ export default function Home() {
         <MedicalProfessional />
       </main>
       <Footer />
+      <Footer />
     </div>
   );
 }
