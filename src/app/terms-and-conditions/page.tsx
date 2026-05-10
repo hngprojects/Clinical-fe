@@ -1,5 +1,13 @@
+interface Term {
+  title: string;
+  content: string;
+  subcontent?: string;
+  bulletTop?: string;
+  bullets?: (string | { label: string; value: string })[];
+}
+
 export default function TermsAndConditions() {
-  const terms = [
+  const terms: Term[] = [
     {
       title: '1. Introduction',
       content:
