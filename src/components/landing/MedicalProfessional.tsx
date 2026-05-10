@@ -2,12 +2,19 @@
 
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
+import { motion } from 'framer-motion';
 
 export function MedicalProfessional() {
   return (
     <section className="bg-[#E8F0F9] py-16 lg:py-24 overflow-x-hidden">
       <div className="container mx-auto px-6 lg:px-12">
-        <div className="flex flex-col gap-12 lg:gap-16 lg:flex-row lg:items-center lg:justify-between relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="flex flex-col gap-12 lg:gap-16 lg:flex-row lg:items-center lg:justify-between relative z-10"
+        >
           {/* Left Content */}
           <div className="flex flex-[1.2] flex-col items-start gap-6 lg:gap-8 text-left">
             {/* Bulb Icon */}
@@ -41,18 +48,25 @@ export function MedicalProfessional() {
           </div>
 
           {/* Right Visual (side-image) */}
-          <div className="flex flex-1 items-center justify-start lg:justify-end">
-            <div className="relative h-[250px] w-full max-w-[400px] lg:h-[304px] lg:w-[500px] lg:max-w-none rotate-[347deg] lg:rotate-0 rounded-[24px] p-6 lg:p-0">
+          <div className="flex flex-1 items-center justify-center lg:justify-end">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="relative h-[250px] w-full max-w-[400px] lg:h-[304px] lg:w-[500px] lg:max-w-none rotate-[347deg] lg:rotate-0 rounded-[24px]"
+            >
               <Image
                 src="/side-image.png"
                 alt="Medical professional visual"
                 fill
-                className="object-contain"
+                sizes="(max-width: 1024px) 100vw, 500px"
+                className="object-contain object-center lg:object-right"
                 priority
               />
-            </div>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

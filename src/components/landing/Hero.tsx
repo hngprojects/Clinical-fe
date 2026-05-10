@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { HugeiconsIcon } from '@hugeicons/react';
 import { ArrowRight02Icon } from '@hugeicons/core-free-icons';
+import { motion } from 'framer-motion';
 
 export function Hero() {
   return (
@@ -12,8 +13,18 @@ export function Hero() {
         {/* Main Row: Centered alignment between text block and visual assembly */}
         <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:justify-between">
           {/* Left Column: Badge, Heading, and Subtext */}
-          <div className="flex-[1.4] flex flex-col items-center lg:items-start gap-6 text-center lg:text-left">
-            <div className="flex items-center gap-2 rounded-full bg-[#F5F5F5] p-1 pr-4">
+          <motion.div
+            className="flex-[1.4] flex flex-col items-center lg:items-start gap-6 text-center lg:text-left"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: 'easeOut' }}
+          >
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="flex items-center gap-2 rounded-full bg-[#F5F5F5] p-1 pr-4"
+            >
               <div className="flex -space-x-2 overflow-hidden">
                 <div className="relative h-6 w-6 rounded-full border-2 border-white bg-slate-200 overflow-hidden">
                   <Image
@@ -46,8 +57,14 @@ export function Hero() {
               <span className="text-[11px] font-bold text-brand-blue">
                 Join 1,000+ users already using Clinsight
               </span>
-            </div>
-            <div className="flex flex-col gap-3">
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="flex flex-col gap-3"
+            >
               <h1 className="text-[32px] lg:text-[64px] font-bold leading-[1.2] tracking-[-0.02em] text-[#1B1B1B]">
                 Understand Your Lab Results Right Now.{' '}
                 <span className="relative mt-2 lg:mt-0 inline-block px-2 text-white">
@@ -55,8 +72,14 @@ export function Hero() {
                   <span className="relative">No Waiting!</span>
                 </span>
               </h1>
-            </div>
-            <div className="text-[16px] lg:text-[18px] font-normal leading-[1.5] tracking-[-0.01em] text-[#5E5E5E]">
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="text-[16px] lg:text-[18px] font-normal leading-[1.5] tracking-[-0.01em] text-[#5E5E5E]"
+            >
               <p className="lg:whitespace-nowrap">
                 Upload your laboratory results and get a clear interpretation in
                 minutes.
@@ -64,11 +87,16 @@ export function Hero() {
               <p className="mt-4 italic text-[14px]">
                 AI-assisted interpretation, not a medical diagnosis.
               </p>
-            </div>{' '}
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* Right Column: Dashboard Visual nested in Circle */}
-          <div className="relative flex-1 min-h-[400px] lg:min-h-[540px] flex items-center justify-center lg:justify-end">
+          <motion.div
+            className="relative flex-1 min-h-[400px] lg:min-h-[540px] flex items-center justify-center lg:justify-end"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.4, ease: 'easeOut' }}
+          >
             {/* Circle Wrapper - Responsive size */}
             <div className="relative h-[320px] w-[320px] lg:h-[540px] lg:w-[540px] flex items-center justify-center scale-90 sm:scale-100 lg:scale-100">
               {/* Background Circle Asset */}
@@ -94,7 +122,7 @@ export function Hero() {
                   />
                 </div>
               </div>
-              {/* Dashboard Content - Centered in the circle */}{' '}
+              {/* Dashboard Content - Centered in the circle */}
               <div className="relative flex flex-col items-center gap-0 z-10 w-full max-w-[240px] lg:max-w-[380px]">
                 {/* User Reports Sidebar - Hidden or adjusted on mobile */}
                 <div className="absolute -left-4 lg:-left-6 top-0 bottom-0 z-20 flex w-[50px] lg:w-[84px] flex-col gap-1.5 lg:gap-2 rounded-lg lg:rounded-xl bg-white p-1 lg:p-2 shadow-lg ring-1 ring-slate-100 transform -translate-x-full">
@@ -111,6 +139,7 @@ export function Hero() {
                         src={src}
                         alt="User"
                         fill
+                        sizes="(max-width: 1024px) 50px, 84px"
                         className="object-cover"
                       />
                     </div>
@@ -205,7 +234,7 @@ export function Hero() {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

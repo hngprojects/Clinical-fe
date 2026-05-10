@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 const STEPS = [
   {
@@ -61,9 +62,13 @@ export function HowItWorks() {
 
         {/* Mobile Layout: Vertical List of Steps */}
         <div className="flex flex-col gap-6 lg:hidden">
-          {STEPS.map((step) => (
-            <div
+          {STEPS.map((step, index) => (
+            <motion.div
               key={step.number}
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
               className="w-full rounded-2xl shadow-sm overflow-hidden"
             >
               <Image
@@ -73,14 +78,20 @@ export function HowItWorks() {
                 height={600}
                 className="w-full h-auto object-contain"
               />
-            </div>
+            </motion.div>
           ))}
         </div>
 
         {/* Desktop Layout: Mosaic Grid */}
         <div className="hidden lg:flex gap-8 items-stretch">
           {/* Left: Image 1 with button overlaid at the bottom */}
-          <div className="relative flex-shrink-0 w-[380px] rounded-2xl overflow-hidden shadow-sm">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="relative flex-shrink-0 w-[380px] rounded-2xl overflow-hidden shadow-sm"
+          >
             <Image
               src="/image-1.1.jpg"
               alt="Step 1"
@@ -107,13 +118,19 @@ export function HowItWorks() {
                 <span>Download Clinsight</span>
               </button>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right: Images 2, 3 top row — Image 4 full width below */}
           <div className="flex flex-col gap-8 flex-1">
             {/* Top row: Image 2 and Image 3 */}
             <div className="flex gap-8 flex-1">
-              <div className="overflow-hidden rounded-2xl shadow-sm flex-1">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="overflow-hidden rounded-2xl shadow-sm flex-1"
+              >
                 <Image
                   src="/image-2.jpg"
                   alt="Step 2"
@@ -121,8 +138,14 @@ export function HowItWorks() {
                   height={400}
                   className="h-full w-full object-cover"
                 />
-              </div>
-              <div className="overflow-hidden rounded-2xl shadow-sm flex-1">
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="overflow-hidden rounded-2xl shadow-sm flex-1"
+              >
                 <Image
                   src="/image-3.jpg"
                   alt="Step 3"
@@ -130,11 +153,17 @@ export function HowItWorks() {
                   height={400}
                   className="h-full w-full object-cover"
                 />
-              </div>
+              </motion.div>
             </div>
 
             {/* Bottom: Image 4 full width */}
-            <div className="overflow-hidden rounded-2xl shadow-sm flex-1">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="overflow-hidden rounded-2xl shadow-sm flex-1"
+            >
               <Image
                 src="/image-4.1.jpg"
                 alt="Step 4"
@@ -142,7 +171,7 @@ export function HowItWorks() {
                 height={400}
                 className="h-full w-full object-cover"
               />
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>

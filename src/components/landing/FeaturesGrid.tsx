@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 const GRID_FEATURES = [
   {
@@ -78,9 +79,13 @@ export function FeaturesGrid() {
 
         {/* Features Grid - 6 individual cards with #1B1B1B52 bg and left border */}
         <div className="grid grid-cols-1 gap-4 lg:gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {GRID_FEATURES.map((feature) => (
-            <div
+          {GRID_FEATURES.map((feature, index) => (
+            <motion.div
               key={feature.title}
+              initial={{ opacity: 0, x: -10 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.05 }}
               className="flex h-auto min-h-[180px] lg:h-[231px] flex-col gap-4 lg:gap-5 border-l-2 border-[#FFFFFE] bg-[#1B1B1B52] p-6 lg:p-8"
             >
               <div className="flex h-6 w-6 items-center justify-center">
@@ -99,7 +104,7 @@ export function FeaturesGrid() {
                   {feature.description}
                 </p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
