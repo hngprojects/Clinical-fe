@@ -45,7 +45,7 @@ export function FAQ() {
     <section className="bg-[#FFFFFE] py-16 lg:py-24">
       <div className="container mx-auto px-6 lg:px-12">
         {/* Section Header */}
-        <div className="mb-12 lg:mb-16 flex flex-col items-start lg:items-center text-left lg:text-center">
+        <div className="mb-12 lg:mb-16 flex flex-col items-center text-center">
           <div className="mb-6 flex w-fit h-[42px] items-center justify-center gap-2 rounded-[64px] bg-[#E8F0F9] px-4 py-2 text-brand-blue">
             <span className="h-2 w-2 rounded-sm bg-brand-blue" />
             <span className="text-[14px] lg:text-[16px] font-medium leading-[1.5] tracking-[-0.01em] uppercase">
@@ -64,7 +64,7 @@ export function FAQ() {
         </div>
 
         {/* FAQ Accordion */}
-        <div className="mx-auto flex flex-col items-center w-full max-w-2xl">
+        <div className="flex flex-col items-center w-full max-w-2xl mx-auto">
           <Accordion
             type="single"
             collapsible
@@ -76,10 +76,10 @@ export function FAQ() {
                 value={`item-${index}`}
                 className="rounded-[16px] border border-[#D0D0D0] bg-[#FAFAFA] transition-all data-[state=open]:shadow-sm min-h-[64px] flex flex-col justify-center overflow-hidden"
               >
-                <AccordionTrigger className="py-2 px-5 text-[16px] lg:text-[18px] font-bold text-[#1B1B1B] hover:no-underline text-left">
+                <AccordionTrigger className="py-2 px-5 text-[16px] lg:text-[18px] font-bold text-[#1B1B1B] hover:no-underline text-center">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="px-5 pb-5 text-[14px] font-normal leading-[1.5] tracking-[-0.01em] text-[#5E5E5E]">
+                <AccordionContent className="px-5 pb-5 text-[14px] font-normal leading-[1.5] tracking-[-0.01em] text-[#5E5E5E] text-center">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>
