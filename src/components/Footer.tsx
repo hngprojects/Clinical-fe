@@ -22,13 +22,13 @@ const FOOTER_LINKS = {
 export function Footer() {
   return (
     <footer className="relative overflow-hidden bg-[#11519A] pt-12 pb-10 text-white">
-      {/* Background Image Asset - Left Side */}
-      <div className="absolute top-0 left-0 h-full w-full lg:w-1/2 pointer-events-none z-0 opacity-40 lg:opacity-100">
+      {/* Background Image Asset - Responsive Positioning */}
+      <div className="absolute top-0 left-0 lg:left-auto lg:right-0 h-full w-full lg:w-1/2 pointer-events-none z-0 opacity-40 lg:opacity-100">
         <Image
           src="/assets/footer-bg-image.svg"
           alt=""
           fill
-          className="object-cover object-left"
+          className="object-cover object-left lg:object-right"
         />
       </div>
 
