@@ -38,24 +38,23 @@ export function HowItWorks() {
     <section className="bg-[#FAFAFA] py-16 lg:py-24" id="how-it-works">
       <div className="container mx-auto px-6 lg:px-12">
         {/* Section Header */}
-        <div className="mb-12 lg:mb-20 grid grid-cols-1 gap-8 lg:grid-cols-2">
-          <div className="flex flex-col items-start gap-8 lg:gap-20">
-            <div className="flex w-fit items-center gap-2 rounded-full bg-[#FFFFFE] px-4 py-2 shadow-sm border border-slate-50">
-              <span className="h-2 w-2 rounded-sm bg-[#F59E0B]" />
-              <span className="text-xs font-bold text-[#F59E0B] uppercase tracking-wider">
-                Clarity, simplified
-              </span>
-            </div>
-            <h2 className="text-[32px] lg:text-[40px] font-bold leading-[1.1] tracking-tight text-[#1B1B1B] text-left">
-              How <span className="text-brand-blue">Clinsight</span> Works
-            </h2>
+        <div className="mb-12 lg:mb-16 flex flex-col gap-6">
+          <div className="flex w-fit items-center gap-2 rounded-full bg-[#FFFFFE] px-4 py-2 shadow-sm border border-slate-50">
+            <span className="h-2 w-2 rounded-sm bg-[#F59E0B]" />
+            <span className="text-xs font-bold text-[#F59E0B] uppercase tracking-wider">
+              Clarity, simplified
+            </span>
           </div>
 
-          <div className="flex flex-col items-start lg:justify-end">
-            <p className="max-w-lg text-[16px] lg:text-[18px] font-normal leading-[1.5] tracking-[-0.01em] text-[#5E5E5E] lg:ml-auto text-left">
-              Through intelligent analysis and expert validation, Clinsight turn
-              complex data into structured insights you can understand and act
-              on.
+          <div className="grid grid-cols-1 lg:grid-cols-[max-content_1fr] gap-6 lg:gap-24 lg:items-center">
+            <h2 className="text-[32px] lg:text-[40px] font-bold leading-[1.1] tracking-tight text-[#1B1B1B] text-left whitespace-nowrap">
+              How <span className="text-brand-blue">Clinsight</span> Works
+            </h2>
+
+            <p className="max-w-lg lg:max-w-none text-[18px] font-normal leading-[1.5] tracking-[-0.01em] text-[#5E5E5E] text-left">
+              Through intelligent analysis and expert validation, Clinsight
+              turns complex data into structured insights you can understand and
+              act on.
             </p>
           </div>
         </div>
