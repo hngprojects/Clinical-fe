@@ -15,20 +15,21 @@ const FOOTER_LINKS = {
   ],
   legal: [
     { name: 'Privacy Policy', href: '#' },
-    { name: 'Terms and Conditions', href: '#' },
+    { name: 'Terms and Conditions', href: '/terms-and-conditions' },
   ],
 };
 
 export function Footer() {
   return (
     <footer className="relative overflow-hidden bg-[#11519A] pt-12 pb-10 text-white">
-      {/* Background Image Asset - Left Side */}
-      <div className="absolute top-0 left-0 h-full w-full lg:w-1/2 pointer-events-none z-0 opacity-40 lg:opacity-100">
+      {/* Background Image Asset - Responsive Positioning */}
+      <div className="absolute top-0 left-0 lg:left-auto lg:right-0 h-full w-full lg:w-1/2 pointer-events-none z-0 opacity-40 lg:opacity-100">
         <Image
           src="/assets/footer-bg-image.svg"
           alt=""
           fill
-          className="object-cover object-left"
+          sizes="100vw"
+          className="object-cover object-left lg:object-right"
         />
       </div>
 
@@ -40,6 +41,7 @@ export function Footer() {
               src="/clinsight-logo.svg"
               alt="Clinsight Logo"
               fill
+              sizes="(max-width: 1024px) 120px, 140px"
               className="object-contain object-left brightness-0 invert"
             />
           </div>
