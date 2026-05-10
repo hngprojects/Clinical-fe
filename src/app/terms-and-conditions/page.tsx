@@ -1,3 +1,8 @@
+'use client';
+
+import { Header } from '@/components/Header';
+import { Footer } from '@/components/Footer';
+
 interface Term {
   title: string;
   content: string;
@@ -81,64 +86,68 @@ export default function TermsAndConditions() {
     },
   ];
   return (
-    <div className="flex flex-col">
-      <div className="relative flex max-lg:bg-[#11519A] flex-col justify-center items-center h-77 gap-6">
-        <div
-          className="lg:hidden absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: `url(/circle-bg.png)`,
-          }}
-        />
-        <div
-          className="max-lg:hidden absolute inset-0 -z-10 bg-center w-full bg-no-repeat bg-cover"
-          style={{
-            backgroundImage: `url(/circle-bg-web.png)`,
-          }}
-        />
-        <h1 className="text-[2rem] sm:text-[2.5rem] text-white font-semibold">
-          Terms and Conditions
-        </h1>
-        <p className="text-base text-white">Last Updated, May 2026</p>
-      </div>
-      <div className="flex bg-[#FAFAFA] py-14 md:py-20 justify-center items-center">
-        <div className="flex bg-[#F0F0F0] py-6 px-5 rounded-[12px] w-9/10 flex-col items-center gap-8">
-          {terms.map((term, index) => (
-            <div
-              className="w-full flex flex-col gap-6 border-b border-[#E0E0E0] last:border-0 pb-8"
-              key={index}
-            >
-              <h1 className="text-2xl font-semibold">{term.title}</h1>
-              <div>
-                <p className="text-[#5E5E5E]">{term.content}</p>
-                {term.subcontent && (
-                  <p className="text-[#5E5E5E]">{term.subcontent}</p>
-                )}
-                {term.bulletTop && (
-                  <p className="text-[#5E5E5E]">{term.bulletTop}</p>
+    <div className="flex min-h-screen flex-col bg-white font-sans">
+      <Header />
+      <main className="flex-1 flex flex-col">
+        <div className="relative flex max-lg:bg-[#11519A] flex-col justify-center items-center h-77 gap-6">
+          <div
+            className="lg:hidden absolute inset-0 bg-cover bg-center"
+            style={{
+              backgroundImage: `url(/circle-bg.png)`,
+            }}
+          />
+          <div
+            className="max-lg:hidden absolute inset-0 -z-10 bg-center w-full bg-no-repeat bg-cover"
+            style={{
+              backgroundImage: `url(/circle-bg-web.png)`,
+            }}
+          />
+          <h1 className="text-[2rem] sm:text-[2.5rem] text-white font-semibold">
+            Terms and Conditions
+          </h1>
+          <p className="text-base text-white">Last Updated, May 2026</p>
+        </div>
+        <div className="flex bg-[#FAFAFA] py-14 md:py-20 justify-center items-center">
+          <div className="flex bg-[#F0F0F0] py-6 px-5 rounded-[12px] w-9/10 flex-col items-center gap-8">
+            {terms.map((term, index) => (
+              <div
+                className="w-full flex flex-col gap-6 border-b border-[#E0E0E0] last:border-0 pb-8"
+                key={index}
+              >
+                <h1 className="text-2xl font-semibold">{term.title}</h1>
+                <div>
+                  <p className="text-[#5E5E5E]">{term.content}</p>
+                  {term.subcontent && (
+                    <p className="text-[#5E5E5E]">{term.subcontent}</p>
+                  )}
+                  {term.bulletTop && (
+                    <p className="text-[#5E5E5E]">{term.bulletTop}</p>
+                  )}
+                </div>
+                {term.bullets && (
+                  <ul className="list-inside list-disc">
+                    {term.bullets.map((bullet, bulletIndex) => (
+                      <li key={bulletIndex} className="text-[#5E5E5E]">
+                        {typeof bullet === 'string' ? (
+                          bullet
+                        ) : (
+                          <>
+                            {bullet.label}:{' '}
+                            <span className="font-semibold text-[#1B1B1B]">
+                              {bullet.value}
+                            </span>
+                          </>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
                 )}
               </div>
-              {term.bullets && (
-                <ul className="list-inside list-disc">
-                  {term.bullets.map((bullet, bulletIndex) => (
-                    <li key={bulletIndex} className="text-[#5E5E5E]">
-                      {typeof bullet === 'string' ? (
-                        bullet
-                      ) : (
-                        <>
-                          {bullet.label}:{' '}
-                          <span className="font-semibold text-[#1B1B1B]">
-                            {bullet.value}
-                          </span>
-                        </>
-                      )}
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
+      </main>
+      <Footer />
     </div>
   );
 }
