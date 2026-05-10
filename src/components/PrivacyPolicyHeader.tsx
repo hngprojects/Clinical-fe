@@ -1,8 +1,8 @@
 'use client';
 
 import Image from 'next/image';
-import { motion } from 'motion/react';
-import type { Variants } from 'motion/react';
+import { motion } from 'framer-motion';
+import type { Variants } from 'framer-motion';
 import { HEADERBACKGROUND_PATTERN } from '@/lib/constants';
 
 const headerTextVariants: Variants = {

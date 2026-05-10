@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono, Figtree } from 'next/font/google';
+import { Geist, Geist_Mono, Inter } from 'next/font/google';
 import './globals.css';
 import { cn } from '@/lib/utils';
 import { env } from '@/env/client';
 
-const figtree = Figtree({ subsets: ['latin'], variable: '--font-sans' });
+const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -39,7 +39,7 @@ export default function RootLayout({
         geistSans.variable,
         geistMono.variable,
         'font-sans',
-        figtree.variable,
+        inter.variable,
       )}
     >
       <body className="min-h-full flex flex-col">{children}</body>
