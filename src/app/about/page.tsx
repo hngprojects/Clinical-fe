@@ -86,13 +86,12 @@ export default function AboutPage() {
 
       {/* Page wrapper */}
       <div
-        className="bg-white text-[#1a1a1a] overflow-x-hidden flex flex-col"
+        className="bg-white text-[#1a1a1a] overflow-x-hidden flex flex-col items-center"
         style={{ gap: "110px", padding: "110px 0px" }}
       >
-
         {/* ── Hero ─────────────────────────────────────────────────────────── */}
         <section
-          className="text-center mx-auto flex items-center justify-center flex-col"
+          className="w-full text-center flex flex-col items-center justify-center mx-auto"
           style={{ maxWidth: "842px", gap: "56px", margin: "0 auto" }}
         >
           {/* heroTop */}
