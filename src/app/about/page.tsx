@@ -48,7 +48,7 @@ const ResponsiveStyle = () => (
 // ─── Image placeholder blocks ─────────────────────────────────────────────────
 const ImgBlock = ({
   style,
-  image,
+  image
 }: {
   style?: React.CSSProperties;
   image?: StaticImageData;
