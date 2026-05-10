@@ -44,34 +44,30 @@ export function Hero() {
                 Join 1,000+ users already using Clinsight
               </span>
             </div>
-
             <div className="flex flex-col gap-3">
-              <h1 className="text-[32px] lg:text-[48px] font-bold leading-[1.2] tracking-[-0.02em] text-[#1B1B1B]">
-                Understand Your Lab Results Right Now.
-              </h1>
-              <h1 className="text-[32px] lg:text-[48px] font-bold leading-[1.2] tracking-[-0.02em] text-[#1B1B1B]">
-                <span className="relative inline-block px-3 text-white">
+              <h1 className="text-[32px] lg:text-[64px] font-bold leading-[1.2] tracking-[-0.02em] text-[#1B1B1B]">
+                Understand Your Lab Results Right Now.{' '}
+                <span className="relative mt-2 lg:mt-0 inline-block px-2 text-white">
                   <span className="absolute inset-0 -skew-x-2 rounded bg-brand-blue" />
                   <span className="relative">No Waiting!</span>
                 </span>
               </h1>
             </div>
-
-            <p className="max-w-md text-[16px] lg:text-[18px] font-normal leading-[1.5] tracking-[-0.01em] text-[#5E5E5E]">
-              Upload your laboratory results and get a clear interpretation in
-              minutes.
-              <br />
-              <br />
-              <span className="italic text-[14px]">
+            <div className="text-[16px] lg:text-[18px] font-normal leading-[1.5] tracking-[-0.01em] text-[#5E5E5E]">
+              <p className="lg:whitespace-nowrap">
+                Upload your laboratory results and get a clear interpretation in
+                minutes.
+              </p>
+              <p className="mt-4 italic text-[14px]">
                 AI-assisted interpretation, not a medical diagnosis.
-              </span>
-            </p>
+              </p>
+            </div>{' '}
           </div>
 
           {/* Right Column: Dashboard Visual nested in Circle */}
-          <div className="relative flex-1 min-h-[400px] lg:min-h-[600px] flex items-center justify-center lg:justify-end">
+          <div className="relative flex-1 min-h-[400px] lg:min-h-[540px] flex items-center justify-center lg:justify-end">
             {/* Circle Wrapper - Responsive size */}
-            <div className="relative h-[320px] w-[320px] lg:h-[600px] lg:w-[600px] flex items-center justify-center scale-90 sm:scale-100 lg:scale-100">
+            <div className="relative h-[320px] w-[320px] lg:h-[540px] lg:w-[540px] flex items-center justify-center scale-90 sm:scale-100 lg:scale-100">
               {/* Background Circle Asset */}
               <div className="absolute inset-0 pointer-events-none">
                 <Image
@@ -125,7 +121,18 @@ export function Hero() {
                 {/* Dashboard Card with Fading Bottom Edge */}
                 <div className="relative z-10 w-full">
                   {/* Container with fading gradient and mask for the border/bg */}
-                  <div className="rounded-t-[16px] lg:rounded-t-[24px] border-x border-t border-brand-blue bg-gradient-to-b from-white via-white to-transparent p-4 lg:p-8 pb-8 lg:pb-12 flex flex-col gap-2 lg:gap-3 [mask-image:linear-gradient(to_bottom,black_70%,transparent_100%)]">
+                  <div
+                    className="rounded-t-[16px] lg:rounded-t-[24px] p-4 lg:p-8 pb-8 lg:pb-12 flex flex-col gap-2 lg:gap-3 [mask-image:linear-gradient(to_bottom,black_70%,transparent_100%)]"
+                    style={{
+                      borderWidth: '3px 3px 0px 3px',
+                      borderStyle: 'solid',
+                      borderColor: 'transparent',
+                      backgroundImage:
+                        'linear-gradient(to bottom, white, white, transparent), linear-gradient(180deg, #1565C0 0%, #F2F2F2 73.08%)',
+                      backgroundOrigin: 'border-box',
+                      backgroundClip: 'padding-box, border-box',
+                    }}
+                  >
                     <div className="flex items-center gap-2 lg:gap-3">
                       <div className="flex h-6 w-6 lg:h-10 lg:w-10 items-center justify-center">
                         <Image
