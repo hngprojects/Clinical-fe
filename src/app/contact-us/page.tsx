@@ -4,15 +4,15 @@ import Image from 'next/image';
 import { useState } from 'react';
 import Link from 'next/link';
 
-import { FaApple, FaGooglePlay } from 'react-icons/fa';
-
 import {
-  FiMail,
-  FiPhone,
-  FiMapPin,
-  FiClock,
-  FiCheckCircle,
-} from 'react-icons/fi';
+  AppleIcon,
+  Mail01Icon,
+  Call02Icon,
+  Location01Icon,
+  Clock01Icon,
+  CheckmarkCircle02Icon,
+  PlayStoreIcon,
+} from '@hugeicons/react';
 
 import { Inter, Playfair_Display } from 'next/font/google';
 
@@ -51,8 +51,8 @@ export default function ContactUsPage() {
 
           {/* DESKTOP BUTTON */}
           <button className="hidden items-center gap-3 rounded-lg border px-5 py-2.5 text-sm md:flex">
-            <FaApple />
-            <FaGooglePlay className="text-[#34A853]" />
+            <AppleIcon size={16} />
+            <PlayStoreIcon size={16} className="text-[#34A853]" />
             <span>Download App</span>
           </button>
 
@@ -73,8 +73,8 @@ export default function ContactUsPage() {
             <Link href="/">How it Works</Link>
 
             <button className="flex items-center gap-3 rounded-lg border px-4 py-2 text-sm">
-              <FaApple />
-              <FaGooglePlay className="text-[#34A853]" />
+              <AppleIcon size={16} />
+              <PlayStoreIcon size={16} className="text-[#34A853]" />
               <span>Download App</span>
             </button>
           </div>
@@ -185,7 +185,7 @@ export default function ContactUsPage() {
               {/* EMAIL */}
               <div className="flex items-start gap-3">
                 <div className="flex h-8 w-8 items-center justify-center rounded-md bg-[#E8F0F9] text-[#1565C0]">
-                  <FiMail size={16} />
+                  <Mail01Icon size={16} />
                 </div>
 
                 <div>
@@ -197,7 +197,7 @@ export default function ContactUsPage() {
               {/* PHONE */}
               <div className="flex items-start gap-3">
                 <div className="flex h-8 w-8 items-center justify-center rounded-md bg-[#E8F0F9] text-[#1565C0]">
-                  <FiPhone size={16} />
+                  <Call02Icon size={16} />
                 </div>
 
                 <div>
@@ -209,7 +209,7 @@ export default function ContactUsPage() {
               {/* ADDRESS */}
               <div className="flex items-start gap-3">
                 <div className="flex h-8 w-8 items-center justify-center rounded-md bg-[#E8F0F9] text-[#1565C0]">
-                  <FiMapPin size={16} />
+                  <Location01Icon size={16} />
                 </div>
 
                 <div>
@@ -221,7 +221,7 @@ export default function ContactUsPage() {
               {/* HOURS */}
               <div className="flex items-start gap-3">
                 <div className="flex h-8 w-8 items-center justify-center rounded-md bg-[#E8F0F9] text-[#1565C0]">
-                  <FiClock size={16} />
+                  <Clock01Icon size={16} />
                 </div>
 
                 <div>
@@ -237,7 +237,7 @@ export default function ContactUsPage() {
           <div className="rounded-[12px] bg-[#E8F0F9] p-[20px]">
             <div className="flex flex-col gap-5">
               <div className="flex h-8 w-8 items-center justify-center rounded-md bg-white text-[#1565C0] shadow-sm">
-                <FiCheckCircle size={18} />
+                <CheckmarkCircle02Icon size={18} />
               </div>
 
               <div>
