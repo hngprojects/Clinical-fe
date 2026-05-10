@@ -92,7 +92,7 @@ export default function TermsAndConditions() {
         <div
           className="max-lg:hidden absolute inset-0 -z-10 bg-center w-full bg-no-repeat bg-cover"
           style={{
-            backgroundImage: `url(/circle-bg-web.png`,
+            backgroundImage: `url(/circle-bg-web.png)`,
           }}
         />
         <h1 className="text-[2rem] sm:text-[2.5rem] text-white font-semibold">
@@ -104,41 +104,36 @@ export default function TermsAndConditions() {
         <div className="flex bg-[#F0F0F0] py-6 px-5 rounded-[12px] w-9/10 flex-col items-center gap-8">
           {terms.map((term, index) => (
             <div
-              className="w-full flex flex-col gap-6 not-last:border-b border-[#E0E0E0] pb-8"
+              className="w-full flex flex-col gap-6 border-b border-[#E0E0E0] last:border-0 pb-8"
               key={index}
             >
               <h1 className="text-2xl font-semibold">{term.title}</h1>
               <div>
                 <p className="text-[#5E5E5E]">{term.content}</p>
                 {term.subcontent && (
-                  <p className="text-[#5E5E5E] italic">{term.subcontent}</p>
+                  <p className="text-[#5E5E5E]">{term.subcontent}</p>
                 )}
                 {term.bulletTop && (
-                  <p className="text-[#5E5E5E] font-medium">{term.bulletTop}</p>
+                  <p className="text-[#5E5E5E]">{term.bulletTop}</p>
                 )}
               </div>
               {term.bullets && (
-                <div>
+                <ul className="list-inside list-disc">
                   {term.bullets.map((bullet, bulletIndex) => (
-                    <ul
-                      key={bulletIndex}
-                      className="flex items-start list-inside list-disc"
-                    >
-                      <li className="text-[#5E5E5E]">
-                        {typeof bullet === 'string' ? (
-                          bullet
-                        ) : (
-                          <>
-                            {bullet.label}:{' '}
-                            <span className="font-semibold text-[#1B1B1B]">
-                              {bullet.value}
-                            </span>
-                          </>
-                        )}
-                      </li>
-                    </ul>
+                    <li key={bulletIndex} className="text-[#5E5E5E]">
+                      {typeof bullet === 'string' ? (
+                        bullet
+                      ) : (
+                        <>
+                          {bullet.label}:{' '}
+                          <span className="font-semibold text-[#1B1B1B]">
+                            {bullet.value}
+                          </span>
+                        </>
+                      )}
+                    </li>
                   ))}
-                </div>
+                </ul>
               )}
             </div>
           ))}
