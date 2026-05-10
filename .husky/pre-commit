@@ -2,3 +2,11 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 pnpm lint-staged
+
+echo "Building the project..."
+pnpm build
+echo "build completed successfully."
+
+echo "Running type checks..."
+pnpm typecheck
+echo "Type checks completed successfully."
