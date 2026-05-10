@@ -153,31 +153,34 @@ export function WaitlistForm() {
           </div>
 
           {/* Email Input */}
-          <div className="relative">
-            <HugeiconsIcon
-              icon={MailBlock01Icon}
-              className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400"
-              size={20}
-            />
-            <input
-              type="email"
-              placeholder="Enter your email address"
-              value={email}
-              onChange={(e) => {
-                setEmail(e.target.value);
-                setError(''); // Clear error on type
-              }}
-              onFocus={() => setFocusedField('email')}
-              onBlur={() => setFocusedField(null)}
-              disabled={isLoading}
-              className={`w-full rounded-xl border-2 bg-white py-4 pl-12 pr-4 text-base transition-all placeholder:text-gray-400 focus:outline-none disabled:bg-gray-50 disabled:text-gray-400 ${
-                error
-                  ? 'border-red-500'
-                  : focusedField === 'email'
-                    ? 'border-blue-500'
-                    : 'border-gray-200 hover:border-gray-300'
-              }`}
-            />
+          <div>
+            <div className="relative">
+              <HugeiconsIcon
+                icon={MailBlock01Icon}
+                className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400"
+                size={20}
+              />
+              <input
+                type="email"
+                placeholder="Enter your email address"
+                value={email}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                  setError(''); // Clear error on type
+                }}
+                onFocus={() => setFocusedField('email')}
+                onBlur={() => setFocusedField(null)}
+                disabled={isLoading}
+                className={`w-full rounded-xl border-2 bg-white py-4 pl-12 pr-4 text-base transition-all placeholder:text-gray-400 focus:outline-none disabled:bg-gray-50 disabled:text-gray-400 ${
+                  error
+                    ? 'border-red-500'
+                    : focusedField === 'email'
+                      ? 'border-blue-500'
+                      : 'border-gray-200 hover:border-gray-300'
+                }`}
+              />
+            </div>
+
             {error && <p className="mt-2 text-sm text-red-500">{error}</p>}
           </div>
 
