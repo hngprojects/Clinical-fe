@@ -40,7 +40,12 @@
   --color-popover-foreground: var(--popover-foreground);
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
+  --color-secondary-3: #5e5e5e;
   --color-card: var(--card);
+  --color-primary-pressed: #11519a;
+  --color-bg-secondary: #fafafa;
+  --color-outline-border-subtle: #f0f0f0;
+  --color-bg-primary: #fffffe;
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
@@ -128,5 +133,34 @@
   }
   html {
     @apply font-sans;
+  }
+}
+
+@layer components {
+  .privacy-policy-content-block {
+    @apply space-y-6;
+  }
+
+  .privacy-policy-content-block h2 {
+    @apply text-2xl leading-[31.2px] tracking-[-0.48px] font-semibold;
+  }
+
+  .privacy-policy-content-block p {
+    @apply text-sm leading-5.25 tracking-[-0.14px] text-secondary-3 md:text-base md:tracking-[-0.16px] md:leading-6;
+  }
+
+  .privacy-policy-content-block div:first-of-type {
+    @apply space-y-6;
+  }
+
+  .privacy-policy-content-block h3 {
+    @apply text-lg leading-[150%] tracking-[-0.18px] font-semibold;
+  }
+  .privacy-policy-content-block li {
+    @apply list-disc text-secondary-3 text-sm md:text-base;
+  }
+
+  .separator {
+    @apply w-full h-px bg-outline-border-subtle;
   }
 }
