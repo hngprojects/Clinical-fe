@@ -122,7 +122,7 @@ export default function TermsAndConditions() {
               transition={{ duration: 0.35, delay: index * 0.05 }}
               className="w-full flex flex-col gap-6 border-b border-[#E0E0E0] last:border-0 pb-8"
             >
-              <h1 className="text-2xl font-semibold">{term.title}</h1>
+              <h2 className="text-2xl font-semibold">{term.title}</h2>
               <div>
                 <p className="text-[#5E5E5E]">{term.content}</p>
                 {term.subcontent && (
