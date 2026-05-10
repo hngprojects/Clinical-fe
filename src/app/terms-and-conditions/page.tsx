@@ -1,3 +1,7 @@
+'use client';
+
+import { motion } from 'framer-motion';
+
 interface Term {
   title: string;
   content: string;
@@ -80,8 +84,14 @@ export default function TermsAndConditions() {
       ],
     },
   ];
+
   return (
-    <div className="flex flex-col">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.45 }}
+      className="flex flex-col"
+    >
       <div className="relative flex max-lg:bg-[#11519A] flex-col justify-center items-center h-77 gap-6">
         <div
           className="lg:hidden absolute inset-0 bg-cover bg-center"
@@ -100,12 +110,17 @@ export default function TermsAndConditions() {
         </h1>
         <p className="text-base text-white">Last Updated, May 2026</p>
       </div>
+
       <div className="flex bg-[#FAFAFA] py-14 md:py-20 justify-center items-center">
         <div className="flex bg-[#F0F0F0] py-6 px-5 rounded-[12px] w-9/10 flex-col items-center gap-8">
           {terms.map((term, index) => (
-            <div
-              className="w-full flex flex-col gap-6 border-b border-[#E0E0E0] last:border-0 pb-8"
+            <motion.div
               key={index}
+              initial={{ opacity: 0, y: 8 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.35, delay: index * 0.05 }}
+              className="w-full flex flex-col gap-6 border-b border-[#E0E0E0] last:border-0 pb-8"
             >
               <h1 className="text-2xl font-semibold">{term.title}</h1>
               <div>
@@ -135,10 +150,10 @@ export default function TermsAndConditions() {
                   ))}
                 </ul>
               )}
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
