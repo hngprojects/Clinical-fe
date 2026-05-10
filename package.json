@@ -8,7 +8,7 @@
     "start": "next start",
     "typecheck": "tsc --noEmit",
     "prepare": "husky",
-    "lint": "eslint . --ext .ts,.tsx",
+    "lint": "eslint . --ext .ts,.tsx --fix --cache",
     "lint:fix": "eslint . --ext .ts,.tsx --fix",
     "format": "prettier --write ."
   },
