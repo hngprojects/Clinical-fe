@@ -68,13 +68,13 @@ export function FAQ() {
           <Accordion
             type="single"
             collapsible
-            className="w-full space-y-4 border-none"
+            className="w-full space-y-4 border-none overflow-visible"
           >
             {FAQS.map((faq, index) => (
               <AccordionItem
                 key={index}
                 value={`item-${index}`}
-                className="rounded-[16px] border border-[#D0D0D0] bg-[#FAFAFA] transition-all data-[state=open]:shadow-sm min-h-[64px] flex flex-col justify-center"
+                className="rounded-[16px] border border-[#D0D0D0] bg-[#FAFAFA] transition-all data-[state=open]:shadow-sm min-h-[64px] flex flex-col justify-center overflow-hidden"
               >
                 <AccordionTrigger className="py-2 px-5 text-[16px] lg:text-[18px] font-bold text-[#1B1B1B] hover:no-underline text-left">
                   {faq.question}
