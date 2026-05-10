@@ -65,15 +65,14 @@ export function FeaturesGrid() {
             </span>
           </div>
 
-          <h2 className="mb-4 lg:mb-6 max-w-3xl text-[32px] lg:text-[48px] font-bold leading-tight tracking-tight">
-            Everything You Need to{' '}
-            <span className="text-[#F59E0B]">Understand</span> Your Results
+          <h2 className="mb-4 lg:mb-6 max-w-3xl text-[32px] lg:text-[40px] font-bold lg:leading-[1.2] lg:tracking-[-0.02em]">
+            Everything You Need <br className="hidden lg:block" />
+            to <span className="text-[#F59E0B]">Understand</span> Your Results
           </h2>
 
           <p className="max-w-2xl text-[16px] lg:text-[18px] font-normal leading-[1.5] tracking-[-0.01em] text-[#FFFFFE]">
             Clinsight transforms complex laboratory data into structured,
-            easy-to-understand insights using AI, with optional doctor
-            validation for added confidence.
+            easy-to-understand insights using AI.
           </p>
         </div>
 
