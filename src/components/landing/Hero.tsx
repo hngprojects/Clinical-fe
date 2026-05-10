@@ -7,7 +7,7 @@ import { ArrowRight02Icon } from '@hugeicons/core-free-icons';
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-white pt-10 pb-16 lg:pt-16 lg:pb-24">
+    <section className="relative overflow-x-hidden bg-white pt-10 pb-16 lg:pt-16 lg:pb-24">
       <div className="container mx-auto px-6 lg:px-12">
         {/* Main Row: Centered alignment between text block and visual assembly */}
         <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:justify-between">
