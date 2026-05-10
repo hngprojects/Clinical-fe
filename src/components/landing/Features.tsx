@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 const FEATURES = [
   {
@@ -100,9 +101,13 @@ export function Features() {
 
         {/* Feature Cards */}
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-          {FEATURES.map((feature) => (
-            <div
+          {FEATURES.map((feature, index) => (
+            <motion.div
               key={feature.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
               className="flex flex-col gap-6 rounded-[24px] border border-slate-50 bg-white p-4 shadow-sm transition-shadow hover:shadow-md h-auto lg:h-[375px]"
             >
               <div
@@ -125,7 +130,7 @@ export function Features() {
                   {feature.description}
                 </p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
