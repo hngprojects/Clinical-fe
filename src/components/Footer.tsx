@@ -28,6 +28,7 @@ export function Footer() {
           src="/assets/footer-bg-image.svg"
           alt=""
           fill
+          sizes="100vw"
           className="object-cover object-left lg:object-right"
         />
       </div>
@@ -40,6 +41,7 @@ export function Footer() {
               src="/clinsight-logo.svg"
               alt="Clinsight Logo"
               fill
+              sizes="(max-width: 1024px) 120px, 140px"
               className="object-contain object-left brightness-0 invert"
             />
           </div>
