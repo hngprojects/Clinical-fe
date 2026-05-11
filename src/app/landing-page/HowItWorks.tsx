@@ -59,7 +59,7 @@ export function HowItWorks() {
           </div>
         </div>
 
-        {/* Mobile Layout */}
+        {/* Mobile Layout: Vertical List of Steps */}
         <div className="flex flex-col gap-10 lg:hidden">
           {STEPS.map((step) => (
             <motion.div
@@ -68,9 +68,13 @@ export function HowItWorks() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.5, delay: step.number * 0.1 }}
-              className="flex flex-col gap-6"
+              className="flex flex-col rounded-[24px] p-2 shadow-sm"
+              style={{
+                background:
+                  'linear-gradient(180deg, #FFFFFE 79.32%, #E8F0F9 134.62%)',
+              }}
             >
-              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl shadow-lg ring-1 ring-slate-100">
+              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[16px]">
                 <Image
                   src={step.image}
                   alt={step.title}
