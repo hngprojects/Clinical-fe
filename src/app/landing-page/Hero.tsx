@@ -222,7 +222,7 @@ export function Hero() {
                 </div>
 
                 {/* CTA Button */}
-                <div className="z-20 mt-2 lg:mt-4 w-full">
+                <div className="z-20 -mt-6 lg:-mt-10 w-full px-4 lg:px-0">
                   <Button className="w-full rounded-lg lg:rounded-xl bg-brand-blue py-4 lg:py-7 text-[10px] lg:text-sm font-bold text-white shadow-lg hover:bg-brand-blue transition-all">
                     Get Started
                     <HugeiconsIcon
