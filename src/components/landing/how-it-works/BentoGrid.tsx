@@ -4,19 +4,21 @@ import { Button } from '@/components/ui/button';
 export function BentoGrid() {
   return (
     <section className="bg-[#FAFAFA] py-24">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-6 lg:px-12">
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
-          <div className="flex flex-col gap-3">
-            <div className="flex items-center gap-2 text-[#F59E0B] font-bold text-sm tracking-wider uppercase">
-              <div className="size-3 bg-[#F59E0B]" />
+        <div className="flex flex-col items-center lg:items-start gap-6 mb-12 lg:mb-16 text-center lg:text-left">
+          <div className="flex w-fit items-center gap-2 rounded-full bg-[#FFFFFE] px-4 py-2 shadow-sm border border-slate-50">
+            <span className="h-2 w-2 rounded-sm bg-[#F59E0B]" />
+            <span className="text-xs font-bold text-[#F59E0B] uppercase tracking-wider">
               Clarity, simplified
-            </div>
-            <h2 className="text-4xl lg:text-5xl font-bold text-[#1B1B1B]">
-              How <span className="text-[#1565C0]">Clinsight</span> Works
-            </h2>
+            </span>
           </div>
-          <p className="max-w-md text-[#5E5E5E] text-lg leading-relaxed">
+
+          <h2 className="text-[32px] lg:text-[48px] font-bold leading-[1.2] tracking-[-0.02em] text-[#1B1B1B]">
+            How <span className="text-brand-blue">Clinsight</span> Works
+          </h2>
+
+          <p className="max-w-md text-[16px] lg:text-[18px] font-normal leading-[1.5] tracking-[-0.01em] text-[#5E5E5E]">
             Through intelligent analysis and expert validation, Clinsight turns
             complex data into structured insights you can understand and act on.
           </p>
