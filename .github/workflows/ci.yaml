@@ -37,7 +37,7 @@ jobs:
         run: pnpm build
 
       - name: Run security scan with Trivy
-        uses: aquasecurity/trivy-action@0.28.0
+        uses: aquasecurity/trivy-action@57a97c7
         continue-on-error: true
         with:
           scan-type: fs
