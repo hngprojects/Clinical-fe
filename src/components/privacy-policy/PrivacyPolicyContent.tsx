@@ -84,9 +84,9 @@ function AnimatedSeparator() {
 
 export default function PrivacyPolicyContent() {
   return (
-    <div className="py-14 px-4 bg-bg-secondary md:py-20">
+    <div className="py-12 lg:py-20 px-6 bg-[#FAFAFA] flex justify-center">
       <motion.div
-        className="py-6 px-5 bg-bg-primary flex flex-col gap-8 rounded-[20px] border-[0.5px] border-outline-border-subtle max-w-310 mx-auto"
+        className="py-10 px-6 lg:px-16 bg-white flex flex-col gap-10 lg:gap-12 rounded-[24px] shadow-sm w-full max-w-4xl"
         initial={{ opacity: 0, y: 32 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.55, ease: 'easeOut', delay: 0.15 }}

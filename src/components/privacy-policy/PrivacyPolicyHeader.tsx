@@ -30,7 +30,7 @@ const headerItemVariants: Variants = {
 
 export default function PrivacyPolicyHeader() {
   return (
-    <header className="relative w-full h-75 bg-primary-pressed flex items-center justify-center md:h-77">
+    <header className="relative w-full h-[260px] lg:h-[300px] bg-[#11519A] flex items-center justify-center overflow-hidden">
       {HEADERBACKGROUND_PATTERN.map((pattern) => (
         <Image
           key={pattern.type}

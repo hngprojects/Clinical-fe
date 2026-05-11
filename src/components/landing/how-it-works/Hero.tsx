@@ -4,20 +4,40 @@ import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { HugeiconsIcon } from '@hugeicons/react';
 import { ArrowRight02Icon } from '@hugeicons/core-free-icons';
+import { motion } from 'framer-motion';
 
 export function Hero() {
+  const fadeIn = {
+    initial: { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.6, ease: 'easeOut' },
+  };
+
   return (
-    <section className="relative overflow-hidden bg-white pt-10 pb-16 lg:pt-16 lg:pb-24">
+    <section className="relative overflow-x-hidden bg-white pt-10 pb-16 lg:pt-16 lg:pb-24">
       <div className="container mx-auto px-6 lg:px-12">
+        {/* Main Row: Centered alignment between text block and visual assembly */}
         <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:justify-between">
-          <div className="flex-[1.4] flex flex-col items-center lg:items-start gap-6 text-center lg:text-left">
-            <div className="flex items-center gap-2 rounded-full bg-[#F5F5F5] p-1 pr-4">
+          {/* Left Column: Badge, Heading, and Subtext */}
+          <motion.div
+            className="flex-[1.4] flex flex-col items-center lg:items-start gap-6 text-center lg:text-left"
+            initial="initial"
+            animate="animate"
+            variants={{
+              animate: { transition: { staggerChildren: 0.1 } },
+            }}
+          >
+            <motion.div
+              variants={fadeIn}
+              className="flex items-center gap-2 rounded-full bg-[#F5F5F5] p-1 pr-4"
+            >
               <div className="flex -space-x-2 overflow-hidden">
                 <div className="relative h-6 w-6 rounded-full border-2 border-white bg-slate-200 overflow-hidden">
                   <Image
                     src="/Clinsight-Users/handsome-man.jpg"
                     alt="User"
                     fill
+                    sizes="24px"
                     className="object-cover"
                   />
                 </div>
@@ -26,6 +46,7 @@ export function Hero() {
                     src="/User-Report-Images/successful-entrepreneur.png"
                     alt="User"
                     fill
+                    sizes="24px"
                     className="object-cover"
                   />
                 </div>
@@ -34,6 +55,7 @@ export function Hero() {
                     src="/Clinsight-Users/curly-haired-woman.jpg"
                     alt="User"
                     fill
+                    sizes="24px"
                     className="object-cover"
                   />
                 </div>
@@ -41,43 +63,63 @@ export function Hero() {
               <span className="text-[11px] font-bold text-brand-blue">
                 Join 1,000+ users already using Clinsight
               </span>
-            </div>
+            </motion.div>
 
-            <div className="flex flex-col gap-3">
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="flex flex-col gap-3"
+            >
               <h1 className="text-[32px] lg:text-[48px] font-bold leading-[1.2] tracking-[-0.02em] text-[#1B1B1B]">
                 From Upload to Insight
               </h1>
               <h1 className="text-[32px] lg:text-[48px] font-bold leading-[1.2] tracking-[-0.02em] text-[#1B1B1B]">
                 <span className="relative inline-block px-3 text-white">
                   <span className="absolute inset-0 -skew-x-2 rounded bg-brand-blue" />
-                  <span className="relative text-6xl">Here&apos;s How</span>
+                  <span className="relative">Here&apos;s How</span>
                 </span>
               </h1>
-            </div>
+            </motion.div>
 
-            <p className="max-w-md text-[16px] lg:text-[18px] font-normal leading-[1.5] tracking-[-0.01em] text-[#5E5E5E]">
-              Upload your laboratory results and get a clear interpretation in
-              minutes.
-              <br />
-              <br />
-              <span className="italic text-[14px]">
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="text-[16px] lg:text-[18px] font-normal leading-[1.5] tracking-[-0.01em] text-[#5E5E5E]"
+            >
+              <p className="lg:whitespace-nowrap">
+                Upload your laboratory results and get a clear interpretation in
+                minutes.
+              </p>
+              <p className="mt-4 italic text-[14px]">
                 AI-assisted interpretation, not a medical diagnosis.
-              </span>
-            </p>
-          </div>
+              </p>
+            </motion.div>
+          </motion.div>
 
-          <div className="relative flex-1 min-h-[400px] lg:min-h-[600px] flex items-center justify-center lg:justify-end">
-            <div className="relative h-[320px] w-[320px] lg:h-[600px] lg:w-[600px] flex items-center justify-center scale-90 sm:scale-100 lg:scale-100">
+          {/* Right Column: Dashboard Visual nested in Circle */}
+          <motion.div
+            className="relative flex-1 min-h-[400px] lg:min-h-[540px] flex items-center justify-center lg:justify-end"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.4, ease: 'easeOut' }}
+          >
+            {/* Circle Wrapper - Responsive size */}
+            <div className="relative h-[320px] w-[320px] lg:h-[540px] lg:w-[540px] flex items-center justify-center scale-90 sm:scale-100 lg:scale-100">
+              {/* Background Circle Asset */}
               <div className="absolute inset-0 pointer-events-none">
                 <Image
                   src="/assets/outer-inner-circle.svg"
                   alt=""
                   fill
+                  sizes="(max-width: 1024px) 320px, 540px"
                   className="object-contain"
                   priority
                 />
               </div>
-              <div className="absolute bottom-[2%] right-[2%] lg:bottom-[8%] lg:right-[5%] z-20 w-12 h-12 lg:w-20 lg:h-20 flex items-center justify-center">
+              {/* Floating File Icon - Responsive size */}
+              <div className="absolute bottom-[2%] right-[2%] lg:bottom-[5%] lg:right-[8%] lg:left-auto z-20 w-12 h-12 lg:w-20 lg:h-20 flex items-center justify-center">
                 <div className="relative w-full h-full p-2 bg-white rounded-full shadow-md border border-slate-100 lg:shadow-none lg:border-none flex items-center justify-center">
                   <Image
                     src="/assets/docs.svg"
@@ -87,8 +129,10 @@ export function Hero() {
                     className="w-full h-full object-contain"
                   />
                 </div>
-              </div>{' '}
+              </div>
+              {/* Dashboard Content - Centered in the circle */}
               <div className="relative flex flex-col items-center gap-0 z-10 w-full max-w-[240px] lg:max-w-[380px]">
+                {/* User Reports Sidebar - Hidden or adjusted on mobile */}
                 <div className="absolute -left-4 lg:-left-6 top-0 bottom-0 z-20 flex w-[50px] lg:w-[84px] flex-col gap-1.5 lg:gap-2 rounded-lg lg:rounded-xl bg-white p-1 lg:p-2 shadow-lg ring-1 ring-slate-100 transform -translate-x-full">
                   {[
                     '/User-Report-Images/woman-with-laptop.png',
@@ -103,6 +147,7 @@ export function Hero() {
                         src={src}
                         alt="User"
                         fill
+                        sizes="(max-width: 1024px) 50px, 84px"
                         className="object-cover"
                       />
                     </div>
@@ -114,8 +159,21 @@ export function Hero() {
                   </div>
                 </div>
 
+                {/* Dashboard Card with Fading Bottom Edge */}
                 <div className="relative z-10 w-full">
-                  <div className="rounded-t-[16px] lg:rounded-t-[24px] border-x border-t border-brand-blue bg-gradient-to-b from-white via-white to-transparent p-4 lg:p-8 pb-8 lg:pb-12 flex flex-col gap-2 lg:gap-3 [mask-image:linear-gradient(to_bottom,black_70%,transparent_100%)]">
+                  {/* Container with fading gradient and mask for the border/bg */}
+                  <div
+                    className="rounded-t-[16px] lg:rounded-t-[24px] p-4 lg:p-8 pb-8 lg:pb-12 flex flex-col gap-2 lg:gap-3 [mask-image:linear-gradient(to_bottom,black_70%,transparent_100%)]"
+                    style={{
+                      borderWidth: '3px 3px 0px 3px',
+                      borderStyle: 'solid',
+                      borderColor: 'transparent',
+                      backgroundImage:
+                        'linear-gradient(to bottom, white, white, transparent), linear-gradient(180deg, #1565C0 0%, #F2F2F2 73.08%)',
+                      backgroundOrigin: 'border-box',
+                      backgroundClip: 'padding-box, border-box',
+                    }}
+                  >
                     <div className="flex items-center gap-2 lg:gap-3">
                       <div className="flex h-6 w-6 lg:h-10 lg:w-10 items-center justify-center">
                         <Image
@@ -155,6 +213,7 @@ export function Hero() {
                       </span>
                     </div>
 
+                    {/* Recommendations inside the fading container flow */}
                     <div className="flex items-center gap-1 lg:gap-2 rounded-full bg-[#FFFFFE33] px-2 lg:px-4 py-1 lg:py-2 text-emerald-500 shadow-[0_2px_0_0_#1B1B1B14]">
                       <Image
                         src="/assets/recommendation.svg"
@@ -170,7 +229,8 @@ export function Hero() {
                   </div>
                 </div>
 
-                <div className="z-20 mt-2 lg:mt-4 w-full">
+                {/* CTA Button */}
+                <div className="z-20 -mt-6 lg:-mt-10 w-full px-4 lg:px-0">
                   <Button className="w-full rounded-lg lg:rounded-xl bg-brand-blue py-4 lg:py-7 text-[10px] lg:text-sm font-bold text-white shadow-lg hover:bg-brand-blue transition-all">
                     Get Started
                     <HugeiconsIcon
@@ -182,7 +242,7 @@ export function Hero() {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
