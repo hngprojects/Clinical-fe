@@ -1,14 +1,15 @@
 name: CD
 
 on:
-  push:
-    branches:
-      - staging
-      - main
+  workflow_run:
+    workflows: ["CI Workflow"]
+    branches: [staging, main]
+    types:
+      - completed
 
 jobs:
   deploy-staging:
-    if: github.ref == 'refs/heads/staging'
+    if: github.event.workflow_run.head_branch == 'staging' && github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to Staging
@@ -20,8 +21,8 @@ jobs:
           script: |
             set -e
 
-            BRANCH="${{ github.ref_name }}"
-            APP_DIR="/home/clinical-fe/staging"
+            BRANCH="${{ github.event.workflow_run.head_branch }}"
+            APP_DIR="/home/device_clinical_support/clinical-fe/staging"
             PM2_APP="clinical-fe-staging"
             PORT="3001"
 
@@ -45,7 +46,7 @@ jobs:
             pm2 save
 
   deploy-production:
-    if: github.ref == 'refs/heads/main'
+    if: github.event.workflow_run.head_branch == 'main' && github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to Production
@@ -57,8 +58,8 @@ jobs:
           script: |
             set -e
 
-            BRANCH="${{ github.ref_name }}"
-            APP_DIR="/home/clinical-fe/prod"
+            BRANCH="${{ github.event.workflow_run.head_branch }}"
+            APP_DIR="/home/device_clinical_support/clinical-fe/prod"
             PM2_APP="clinical-fe-prod"
             PORT="3000"
 
@@ -80,5 +81,3 @@ jobs:
             fi
 
             pm2 save
-
- 
