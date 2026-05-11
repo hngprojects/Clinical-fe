@@ -3,14 +3,14 @@ import Image from 'next/image';
 export default function AboutValues() {
   return (
     <section className="w-full pt-12 md:pt-20">
-      <div className="mx-auto mb-8 flex w-full max-w-[1280px] items-center justify-center gap-[5px]">
+      <div className="mx-auto mb-8 flex w-full max-w-[1280px] items-center justify-center gap-[5px] px-4 sm:px-6">
         <span className="h-3.5 w-3.5 shrink-0 bg-[#F59E0B]" />
         <span className="text-xl font-medium uppercase text-[#F59E0B]">
           OUR VALUES
         </span>
       </div>
 
-      <div className="w-full bg-[#F5F5F5] px-6 py-14 md:px-20">
+      <div className="w-full bg-[#F5F5F5] px-4 py-12 sm:px-6 md:px-20 md:py-14">
         <div className="mx-auto flex w-full max-w-[1280px] flex-col items-center justify-between gap-12 lg:gap-16">
           <div className="relative flex items-center justify-center text-center">
             <div className="absolute -left-[20px] -top-[20px] h-11 w-10 md:-left-[35px] md:-top-[25px]">
@@ -21,12 +21,12 @@ export default function AboutValues() {
                 className="object-contain"
               />
             </div>
-            <h2 className="text-[32px] font-semibold leading-[48px] text-[#272727] md:text-4xl">
+            <h2 className="max-w-[680px] text-[32px] font-semibold leading-tight text-[#272727] md:text-4xl md:leading-[48px]">
               What guides every decision made
             </h2>
           </div>
 
-          <div className="flex w-full flex-wrap items-center justify-center gap-6 lg:justify-between">
+          <div className="grid w-full grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {[
               {
                 title: 'Empathy',
@@ -55,7 +55,7 @@ export default function AboutValues() {
             ].map((card) => (
               <div
                 key={card.title}
-                className="flex h-[240px] w-full max-w-[256px] flex-col items-start justify-start gap-3.5 rounded-xl bg-white p-7 shadow-[0px_1px_2px_0px_rgba(0,0,0,0.05)] outline outline-1 outline-[#EFEFEF]"
+                className="flex min-h-[240px] w-full flex-col items-start justify-start gap-3.5 rounded-xl bg-white p-7 shadow-[0px_1px_2px_0px_rgba(0,0,0,0.05)] outline outline-1 outline-[#EFEFEF]"
               >
                 <div
                   className={`flex h-12 w-12 items-center justify-center rounded-xl ${card.bg}`}
