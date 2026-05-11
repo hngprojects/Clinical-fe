@@ -86,7 +86,12 @@ export function FeaturesGrid() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.05 }}
-              className="flex h-auto min-h-[180px] lg:h-[231px] flex-col gap-4 lg:gap-5 border-l-2 border-[#FFFFFE] bg-[#1B1B1B52] p-6 lg:p-8"
+              whileHover={{
+                scale: 1.02,
+                backgroundColor: 'rgba(27, 27, 27, 0.45)',
+                borderColor: '#F59E0B',
+              }}
+              className="flex h-auto min-h-[180px] lg:h-[231px] flex-col gap-4 lg:gap-5 border-l-2 border-[#FFFFFE] bg-[#1B1B1B52] p-6 lg:p-8 transition-colors duration-300 cursor-default"
             >
               <div className="flex h-6 w-6 items-center justify-center">
                 <Image

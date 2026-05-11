@@ -7,52 +7,46 @@ import { ArrowRight02Icon } from '@hugeicons/core-free-icons';
 import { motion } from 'framer-motion';
 
 export function Hero() {
+  const fadeIn = {
+    initial: { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.6, ease: 'easeOut' },
+  };
+
   return (
     <section className="relative overflow-x-hidden bg-white pt-10 pb-16 lg:pt-16 lg:pb-24">
       <div className="container mx-auto px-6 lg:px-12">
-        {/* Main Row: Centered alignment between text block and visual assembly */}
         <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:justify-between">
-          {/* Left Column: Badge, Heading, and Subtext */}
+          {/* Left Column */}
           <motion.div
             className="flex-[1.4] flex flex-col items-center lg:items-start gap-6 text-center lg:text-left"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: 'easeOut' }}
+            initial="initial"
+            animate="animate"
+            variants={{ animate: { transition: { staggerChildren: 0.1 } } }}
           >
             <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
+              variants={fadeIn}
               className="flex items-center gap-2 rounded-full bg-[#F5F5F5] p-1 pr-4"
             >
               <div className="flex -space-x-2 overflow-hidden">
-                <div className="relative h-6 w-6 rounded-full border-2 border-white bg-slate-200 overflow-hidden">
-                  <Image
-                    src="/Clinsight-Users/handsome-man.jpg"
-                    alt="User"
-                    fill
-                    sizes="24px"
-                    className="object-cover"
-                  />
-                </div>
-                <div className="relative h-6 w-6 rounded-full border-2 border-white bg-slate-200 overflow-hidden">
-                  <Image
-                    src="/User-Report-Images/successful-entrepreneur.png"
-                    alt="User"
-                    fill
-                    sizes="24px"
-                    className="object-cover"
-                  />
-                </div>
-                <div className="relative h-6 w-6 rounded-full border-2 border-white bg-slate-200 overflow-hidden">
-                  <Image
-                    src="/Clinsight-Users/curly-haired-woman.jpg"
-                    alt="User"
-                    fill
-                    sizes="24px"
-                    className="object-cover"
-                  />
-                </div>
+                {[
+                  '/Clinsight-Users/handsome-man.jpg',
+                  '/User-Report-Images/successful-entrepreneur.png',
+                  '/Clinsight-Users/curly-haired-woman.jpg',
+                ].map((src, i) => (
+                  <div
+                    key={i}
+                    className="relative h-6 w-6 rounded-full border-2 border-white bg-slate-200 overflow-hidden"
+                  >
+                    <Image
+                      src={src}
+                      alt="User"
+                      fill
+                      sizes="24px"
+                      className="object-cover"
+                    />
+                  </div>
+                ))}
               </div>
               <span className="text-[11px] font-bold text-brand-blue">
                 Join 1,000+ users already using Clinsight
@@ -90,16 +84,20 @@ export function Hero() {
             </motion.div>
           </motion.div>
 
-          {/* Right Column: Dashboard Visual nested in Circle */}
+          {/* Right Column */}
           <motion.div
             className="relative flex-1 min-h-[400px] lg:min-h-[540px] flex items-center justify-center lg:justify-end"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.4, ease: 'easeOut' }}
           >
-            {/* Circle Wrapper - Responsive size */}
-            <div className="relative h-[320px] w-[320px] lg:h-[540px] lg:w-[540px] flex items-center justify-center scale-90 sm:scale-100 lg:scale-100">
-              {/* Background Circle Asset */}
+            {/* Circle Wrapper */}
+            <motion.div
+              animate={{ y: [0, -12, 0] }}
+              transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
+              className="relative h-[320px] w-[320px] lg:h-[540px] lg:w-[540px] flex items-center justify-center scale-90 sm:scale-100 lg:scale-100"
+            >
+              {/* Background Circle */}
               <div className="absolute inset-0 pointer-events-none">
                 <Image
                   src="/assets/outer-inner-circle.svg"
@@ -110,8 +108,18 @@ export function Hero() {
                   priority
                 />
               </div>
-              {/* Floating File Icon - Responsive size */}
-              <div className="absolute bottom-[2%] right-[2%] lg:bottom-[8%] lg:right-[5%] z-20 w-12 h-12 lg:w-20 lg:h-20 flex items-center justify-center">
+
+              {/* Floating File Icon */}
+              <motion.div
+                animate={{ y: [0, 10, 0], rotate: [0, 5, 0] }}
+                transition={{
+                  duration: 6,
+                  repeat: Infinity,
+                  ease: 'easeInOut',
+                  delay: 1,
+                }}
+                className="absolute bottom-[2%] right-[2%] lg:bottom-[5%] lg:right-[8%] lg:left-auto z-20 w-12 h-12 lg:w-20 lg:h-20 flex items-center justify-center"
+              >
                 <div className="relative w-full h-full p-2 bg-white rounded-full shadow-md border border-slate-100 lg:shadow-none lg:border-none flex items-center justify-center">
                   <Image
                     src="/assets/docs.svg"
@@ -121,10 +129,11 @@ export function Hero() {
                     className="w-full h-full object-contain"
                   />
                 </div>
-              </div>
-              {/* Dashboard Content - Centered in the circle */}
+              </motion.div>
+
+              {/* Dashboard Content */}
               <div className="relative flex flex-col items-center gap-0 z-10 w-full max-w-[240px] lg:max-w-[380px]">
-                {/* User Reports Sidebar - Hidden or adjusted on mobile */}
+                {/* User Reports Sidebar */}
                 <div className="absolute -left-4 lg:-left-6 top-0 bottom-0 z-20 flex w-[50px] lg:w-[84px] flex-col gap-1.5 lg:gap-2 rounded-lg lg:rounded-xl bg-white p-1 lg:p-2 shadow-lg ring-1 ring-slate-100 transform -translate-x-full">
                   {[
                     '/User-Report-Images/woman-with-laptop.png',
@@ -151,9 +160,8 @@ export function Hero() {
                   </div>
                 </div>
 
-                {/* Dashboard Card with Fading Bottom Edge */}
+                {/* Dashboard Card */}
                 <div className="relative z-10 w-full">
-                  {/* Container with fading gradient and mask for the border/bg */}
                   <div
                     className="rounded-t-[16px] lg:rounded-t-[24px] p-4 lg:p-8 pb-8 lg:pb-12 flex flex-col gap-2 lg:gap-3 [mask-image:linear-gradient(to_bottom,black_70%,transparent_100%)]"
                     style={{
@@ -205,7 +213,6 @@ export function Hero() {
                       </span>
                     </div>
 
-                    {/* Recommendations inside the fading container flow */}
                     <div className="flex items-center gap-1 lg:gap-2 rounded-full bg-[#FFFFFE33] px-2 lg:px-4 py-1 lg:py-2 text-emerald-500 shadow-[0_2px_0_0_#1B1B1B14]">
                       <Image
                         src="/assets/recommendation.svg"
@@ -233,8 +240,11 @@ export function Hero() {
                   </Button>
                 </div>
               </div>
-            </div>
+              {/* end: Dashboard Content */}
+            </motion.div>
+            {/* end: Circle Wrapper */}
           </motion.div>
+          {/* end: Right Column */}
         </div>
       </div>
     </section>
