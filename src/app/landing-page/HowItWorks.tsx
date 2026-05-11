@@ -40,10 +40,9 @@ export function HowItWorks() {
       <div className="container mx-auto px-6 lg:px-12">
         {/* Section Header */}
         <div className="mb-12 lg:mb-16 flex flex-col items-start gap-6 text-left">
-          {/* Badge */}
           <div className="flex w-fit items-center gap-2 rounded-full bg-[#FFFFFE] px-4 py-2 border border-slate-50 shadow-sm">
             <span className="h-2 w-2 rounded-sm bg-[#F59E0B]" />
-            <span className="text-[10px] lg:text-xs font-bold text-[#F59E0B] uppercase tracking-wider">
+            <span className="text-[10px] font-bold text-[#F59E0B] uppercase tracking-wider">
               Clarity, simplified
             </span>
           </div>
@@ -60,15 +59,15 @@ export function HowItWorks() {
           </div>
         </div>
 
-        {/* Mobile Layout: Vertical List of Steps */}
+        {/* Mobile Layout */}
         <div className="flex flex-col gap-10 lg:hidden">
-          {STEPS.map((step, index) => (
+          {STEPS.map((step) => (
             <motion.div
               key={step.number}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              transition={{ duration: 0.5, delay: step.number * 0.1 }}
               className="flex flex-col gap-6"
             >
               <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl shadow-lg ring-1 ring-slate-100">
@@ -84,23 +83,55 @@ export function HowItWorks() {
           ))}
         </div>
 
-        {/* Desktop Layout: Mosaic Grid */}
+        {/* Desktop Layout */}
         <div className="hidden lg:flex gap-8 items-stretch">
-          {/* Left: Image 1 with button overlaid at the bottom */}
+          {/* Left Card */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="relative flex-shrink-0 w-[380px] rounded-2xl overflow-hidden shadow-sm"
+            className="relative flex-shrink-0 w-[380px] rounded-[24px] p-4 flex flex-col shadow-sm"
+            style={{
+              background:
+                'linear-gradient(180deg, #FFFFFE 79.32%, #E8F0F9 134.62%)',
+            }}
           >
-            <Image
-              src="/image-1.1.jpg"
-              alt="Upload lab result"
-              fill
-              className="object-cover"
-            />
-            {/* Button overlaid at bottom of image */}
+            <div className="flex flex-col h-full pb-16">
+              {/* Image — centered with horizontal padding matching the text inset */}
+              <div className="px-3 w-full flex-1 min-h-[300px]">
+                <div className="relative w-full h-full rounded-[16px] overflow-hidden shadow-sm">
+                  <Image
+                    src="/image-1.1.1.jpg"
+                    alt="Clinsight Preview"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              </div>
+
+              {/* Icon + Title */}
+              <div className="mt-6 flex items-start gap-3">
+                <Image
+                  src="/mynaui_one-waves-solid.svg"
+                  alt="Step 1"
+                  width={32}
+                  height={32}
+                  className="mt-1 flex-shrink-0"
+                />
+                <h3 className="text-[24px] font-semibold leading-[1.3] tracking-[-0.02em] text-[#1B1B1B]">
+                  Upload your lab result
+                </h3>
+              </div>
+
+              {/* Paragraph — indented to align with title text */}
+              <p className="mt-2 text-[16px] font-medium leading-[1.5] tracking-[-0.01em] text-[#5E5E5E] pl-[44px]">
+                Easily upload your hard-to-understand report as a PDF or image
+                in seconds.
+              </p>
+            </div>
+
+            {/* Download button overlaid at bottom */}
             <div className="absolute bottom-4 left-1/2 -translate-x-1/2 w-[calc(100%-32px)]">
               <button className="flex w-full h-[46px] items-center justify-center gap-4 rounded-[12px] border border-[#D0D0D0] bg-[#FFFFFE] px-4 py-3 text-xs font-bold text-slate-900 transition-all hover:bg-slate-50 cursor-pointer">
                 <div className="flex items-center gap-2">
@@ -122,39 +153,50 @@ export function HowItWorks() {
             </div>
           </motion.div>
 
-          {/* Right: Images 2, 3 top row — Image 4 full width below */}
+          {/* Right Side Stack */}
           <div className="flex flex-col gap-8 flex-1">
             {/* Top row: Image 2 and Image 3 */}
-            <div className="flex gap-8 flex-1">
+            <div className="flex gap-8">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="overflow-hidden rounded-2xl shadow-sm flex-1"
+                className="relative flex-1 h-[310px] rounded-[24px] p-2 shadow-sm"
+                style={{
+                  background:
+                    'linear-gradient(180deg, #FFFFFE 79.32%, #E8F0F9 134.62%)',
+                }}
               >
-                <Image
-                  src="/image-2.jpg"
-                  alt="AI analysis"
-                  width={500}
-                  height={400}
-                  className="h-full w-full object-cover"
-                />
+                <div className="relative w-full h-full rounded-[16px] overflow-hidden">
+                  <Image
+                    src="/image-2.jpg"
+                    alt="AI analysis"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
               </motion.div>
+
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2 }}
-                className="overflow-hidden rounded-2xl shadow-sm flex-1"
+                className="relative flex-1 h-[310px] rounded-[24px] p-2 shadow-sm"
+                style={{
+                  background:
+                    'linear-gradient(180deg, #FFFFFE 79.32%, #E8F0F9 134.62%)',
+                }}
               >
-                <Image
-                  src="/image-3.jpg"
-                  alt="Clear explanations"
-                  width={500}
-                  height={400}
-                  className="h-full w-full object-cover"
-                />
+                <div className="relative w-full h-full rounded-[16px] overflow-hidden">
+                  <Image
+                    src="/image-3.jpg"
+                    alt="Clear explanations"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
               </motion.div>
             </div>
 
@@ -164,14 +206,14 @@ export function HowItWorks() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="overflow-hidden rounded-2xl shadow-sm flex-1"
+              className="relative rounded-[24px] overflow-hidden shadow-sm"
             >
               <Image
                 src="/image-4.1.jpg"
                 alt="Actionable insights"
                 width={1000}
                 height={400}
-                className="h-full w-full object-cover"
+                className="w-full h-auto"
               />
             </motion.div>
           </div>
