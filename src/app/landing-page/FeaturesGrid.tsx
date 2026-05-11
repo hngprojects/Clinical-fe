@@ -46,32 +46,37 @@ export function FeaturesGrid() {
   return (
     <section className="relative overflow-hidden bg-[#11519A] py-16 lg:py-24 text-white">
       {/* Background Design SVG - Top Right */}
-      <div className="absolute top-0 right-0 pointer-events-none z-0 opacity-50 lg:opacity-100">
+      <div className="absolute top-0 right-0 pointer-events-none z-0 opacity-30 sm:opacity-50 lg:opacity-100">
         <Image
           src="/assets/section-design.svg"
           alt=""
           width={400}
           height={500}
-          className="w-[200px] lg:w-[400px]"
+          className="w-[180px] sm:w-[250px] lg:w-[400px]"
         />
       </div>
 
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
         {/* Section Header */}
         <div className="mb-12 lg:mb-20 flex flex-col items-start lg:items-center text-left lg:text-center">
-          <div className="mb-6 lg:mb-10 flex w-fit h-auto items-center justify-center gap-2 rounded-[64px] bg-[#FFFFFE14] px-4 py-2 text-white">
+          <div className="mb-6 lg:mb-10 flex w-fit h-auto items-center justify-center gap-2 rounded-[64px] bg-[#FFFFFE14] px-4 py-2 text-white border border-white/10">
             <span className="h-2 w-2 rounded-sm bg-white" />
             <span className="text-[10px] lg:text-xs font-bold uppercase tracking-wider">
               Clarity, End to End
             </span>
           </div>
 
-          <h2 className="mb-4 lg:mb-6 max-w-3xl text-[32px] lg:text-[40px] font-bold lg:leading-[1.2] lg:tracking-[-0.02em]">
-            Everything You Need <br className="hidden lg:block" />
-            to <span className="text-[#F59E0B]">Understand</span> Your Results
+          <h2 className="mb-4 lg:mb-6 max-w-3xl lg:mx-auto text-[26px] font-semibold leading-[1.3] tracking-[-0.02em] lg:text-[40px] lg:font-bold lg:leading-[1.2] lg:tracking-[-0.02em] text-left lg:text-center">
+            <span className="block sm:inline whitespace-nowrap">
+              Everything You Need
+            </span>{' '}
+            <span className="block sm:inline whitespace-nowrap">
+              to <span className="text-[#F59E0B]">Understand</span> Your
+            </span>{' '}
+            <span className="block lg:inline whitespace-nowrap">Results</span>
           </h2>
 
-          <p className="max-w-2xl text-[16px] lg:text-[18px] font-normal leading-[1.5] tracking-[-0.01em] text-[#FFFFFE]">
+          <p className="max-w-2xl lg:mx-auto text-[16px] sm:text-[18px] font-normal leading-[1.5] tracking-[-0.01em] text-white/90 text-left lg:text-center">
             Clinsight transforms complex laboratory data into structured,
             easy-to-understand insights using AI.
           </p>
@@ -91,7 +96,7 @@ export function FeaturesGrid() {
                 backgroundColor: 'rgba(27, 27, 27, 0.45)',
                 borderColor: '#F59E0B',
               }}
-              className="flex h-auto min-h-[180px] lg:h-[231px] flex-col gap-4 lg:gap-5 border-l-2 border-[#FFFFFE] bg-[#1B1B1B52] p-6 lg:p-8 transition-colors duration-300 cursor-default"
+              className="flex h-auto min-h-[160px] lg:h-[231px] flex-col gap-4 lg:gap-5 border-l-2 border-[#FFFFFE] bg-[#1B1B1B52] p-6 sm:p-7 lg:p-8 transition-all duration-300 cursor-default"
             >
               <div className="flex h-6 w-6 items-center justify-center">
                 <Image
@@ -105,7 +110,7 @@ export function FeaturesGrid() {
                 <h3 className="text-lg lg:text-xl font-bold">
                   {feature.title}
                 </h3>
-                <p className="text-[13px] lg:text-sm leading-relaxed opacity-70">
+                <p className="text-[14px] lg:text-sm leading-relaxed text-white/70">
                   {feature.description}
                 </p>
               </div>
