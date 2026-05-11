@@ -253,6 +253,7 @@ export function Hero() {
               </div>
             </motion.div>
           </motion.div>
+          {/* end: Right Column */}
         </div>
       </div>
     </section>
