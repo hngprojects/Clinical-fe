@@ -39,20 +39,20 @@ export function HowItWorks() {
     <section className="bg-[#FAFAFA] py-16 lg:py-24" id="how-it-works">
       <div className="container mx-auto px-6 lg:px-12">
         {/* Section Header */}
-        <div className="mb-12 lg:mb-16 flex flex-col gap-6">
-          <div className="flex w-fit items-center gap-2 rounded-full bg-[#FFFFFE] px-4 py-2 shadow-sm border border-slate-50">
+        <div className="mb-12 lg:mb-16 flex flex-col items-start gap-6 text-left">
+          {/* Badge */}
+          <div className="flex w-fit items-center gap-2 rounded-full bg-[#FFFFFE] px-4 py-2 border border-slate-50 shadow-sm">
             <span className="h-2 w-2 rounded-sm bg-[#F59E0B]" />
-            <span className="text-xs font-bold text-[#F59E0B] uppercase tracking-wider">
+            <span className="text-[10px] lg:text-xs font-bold text-[#F59E0B] uppercase tracking-wider">
               Clarity, simplified
             </span>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-[max-content_1fr] gap-6 lg:gap-24 lg:items-center">
-            <h2 className="text-[32px] lg:text-[40px] font-bold leading-[1.1] tracking-tight text-[#1B1B1B] text-left whitespace-nowrap">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 lg:items-center w-full">
+            <h2 className="text-[26px] sm:text-[36px] lg:text-[40px] font-bold leading-[1.1] tracking-tight text-[#1B1B1B]">
               How <span className="text-brand-blue">Clinsight</span> Works
             </h2>
-
-            <p className="max-w-lg lg:max-w-none text-[18px] font-normal leading-[1.5] tracking-[-0.01em] text-[#5E5E5E] text-left">
+            <p className="max-w-lg lg:mx-0 lg:max-w-xl text-[14px] lg:text-[18px] font-normal leading-[1.5] tracking-[-0.01em] text-[#5E5E5E]">
               Through intelligent analysis and expert validation, Clinsight
               turns complex data into structured insights you can understand and
               act on.
@@ -61,23 +61,25 @@ export function HowItWorks() {
         </div>
 
         {/* Mobile Layout: Vertical List of Steps */}
-        <div className="flex flex-col gap-6 lg:hidden">
+        <div className="flex flex-col gap-10 lg:hidden">
           {STEPS.map((step, index) => (
             <motion.div
               key={step.number}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="w-full rounded-2xl shadow-sm overflow-hidden"
+              className="flex flex-col gap-6"
             >
-              <Image
-                src={step.image}
-                alt={step.title}
-                width={800}
-                height={600}
-                className="w-full h-auto object-contain"
-              />
+              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl shadow-lg ring-1 ring-slate-100">
+                <Image
+                  src={step.image}
+                  alt={step.title}
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 400px"
+                  className="object-cover"
+                />
+              </div>
             </motion.div>
           ))}
         </div>
@@ -94,7 +96,7 @@ export function HowItWorks() {
           >
             <Image
               src="/image-1.1.jpg"
-              alt="Step 1"
+              alt="Upload lab result"
               fill
               className="object-cover"
             />
@@ -133,7 +135,7 @@ export function HowItWorks() {
               >
                 <Image
                   src="/image-2.jpg"
-                  alt="Step 2"
+                  alt="AI analysis"
                   width={500}
                   height={400}
                   className="h-full w-full object-cover"
@@ -148,7 +150,7 @@ export function HowItWorks() {
               >
                 <Image
                   src="/image-3.jpg"
-                  alt="Step 3"
+                  alt="Clear explanations"
                   width={500}
                   height={400}
                   className="h-full w-full object-cover"
@@ -166,7 +168,7 @@ export function HowItWorks() {
             >
               <Image
                 src="/image-4.1.jpg"
-                alt="Step 4"
+                alt="Actionable insights"
                 width={1000}
                 height={400}
                 className="h-full w-full object-cover"
