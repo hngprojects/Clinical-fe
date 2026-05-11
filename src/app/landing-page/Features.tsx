@@ -108,7 +108,12 @@ export function Features() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="flex flex-col gap-6 rounded-[24px] border border-slate-50 bg-white p-4 shadow-sm transition-shadow hover:shadow-md h-auto lg:h-[375px]"
+              whileHover={{
+                y: -10,
+                boxShadow:
+                  '0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)',
+              }}
+              className="flex flex-col gap-6 rounded-[24px] border border-slate-50 bg-white p-4 shadow-sm transition-all duration-300 h-auto lg:h-[375px] cursor-default"
             >
               <div
                 className={`flex h-[148px] w-full items-center justify-center rounded-2xl ${feature.bgColor} p-8`}

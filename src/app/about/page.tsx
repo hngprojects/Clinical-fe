@@ -10,9 +10,9 @@ import AboutTeam from '@/components/landing/about/AboutTeam';
 
 export default function AboutStandalonePage() {
   return (
-    <div className="flex min-h-screen flex-col bg-white">
+    <div className="flex min-h-screen flex-col bg-white font-sans">
       <Header />
-      <main className="flex-1 flex flex-col gap-28 overflow-x-hidden py-28 md:py-0 text-base text-[#1a1a1a]">
+      <main className="flex-1 flex flex-col overflow-x-hidden text-base text-[#1B1B1B]">
         <AboutHero />
         <AboutStory />
         <AboutMissionVision />

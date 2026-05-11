@@ -11,11 +11,13 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <main>
+    <div className="flex min-h-screen flex-col bg-white font-sans">
       <Header />
-      <PrivacyPolicyHeader />
-      <PrivacyPolicyContent />
+      <main className="flex-1">
+        <PrivacyPolicyHeader />
+        <PrivacyPolicyContent />
+      </main>
       <Footer />
-    </main>
+    </div>
   );
 }
