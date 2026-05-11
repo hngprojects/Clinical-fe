@@ -4,12 +4,7 @@
 
 ## Description
 
-feat: enhance CI/CD pipeline with security gates and dependency management
-
-- Add Trivy vulnerability scanning (CRITICAL/HIGH severity) to CI workflow
-- Add Gitleaks secrets detection to CI workflow
-- Modify CD workflow to trigger only on successful CI completion for staging/main branches
-- Clean up duplicate entries in PR template
+<!--- Describe your changes in detail -->
 
 ## Related Issue (Link to issue ticket)
 
@@ -36,6 +31,7 @@ feat: enhance CI/CD pipeline with security gates and dependency management
 
 - [ ] Bug fix (non-breaking change which fixes an issue)
 - [x] New feature (non-breaking change which adds functionality)
+- [] New feature (non-breaking change which adds functionality)
 - [ ] Breaking change (fix or feature that would cause existing functionality to change)
 
 ## Checklist
@@ -49,3 +45,9 @@ feat: enhance CI/CD pipeline with security gates and dependency management
 - [x] I have read the **CONTRIBUTING** document.
 - [x] I have added tests to cover my changes.
 - [x] All new and existing tests passed.
+- [] My code follows the code style of this project.
+- [] My change requires a change to the documentation.
+- [] I have updated the documentation accordingly.
+- [] I have read the **CONTRIBUTING** document.
+- [] I have added tests to cover my changes.
+- [] All new and existing tests passed.
