@@ -1,9 +1,10 @@
 import { Header } from '@/components/Header';
-import { Hero } from '@/components/landing/Hero';
-import { Features } from '@/components/landing/Features';
-import { FeaturesGrid } from '@/components/landing/FeaturesGrid';
-import { FAQ } from '@/components/landing/FAQ';
-import { MedicalProfessional } from '@/components/landing/MedicalProfessional';
+import { Hero } from './landing-page/Hero';
+import { Features } from './landing-page/Features';
+import { FeaturesGrid } from './landing-page/FeaturesGrid';
+import { HowItWorks } from './landing-page/HowItWorks';
+import { FAQ } from './landing-page/FAQ';
+import { MedicalProfessional } from './landing-page/MedicalProfessional';
 import { Footer } from '@/components/Footer';
 
 export default function Home() {
@@ -14,6 +15,7 @@ export default function Home() {
         <Hero />
         <Features />
         <FeaturesGrid />
+        <HowItWorks />
         <FAQ />
         <MedicalProfessional />
       </main>
