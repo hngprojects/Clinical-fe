@@ -1,10 +1,10 @@
 'use client';
 
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 
 export default function AboutMissionVision() {
-  const slideInLeft = {
+  const slideInLeft: Variants = {
     hidden: { opacity: 0, x: -50 },
     visible: {
       opacity: 1,
@@ -13,7 +13,7 @@ export default function AboutMissionVision() {
     },
   };
 
-  const slideInRight = {
+  const slideInRight: Variants = {
     hidden: { opacity: 0, x: 50 },
     visible: {
       opacity: 1,
