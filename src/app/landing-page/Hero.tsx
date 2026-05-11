@@ -19,16 +19,17 @@ export function Hero() {
         <div className="flex flex-col gap-12 lg:flex-row lg:items-center lg:justify-between">
           {/* Left Column */}
           <motion.div
-            className="flex-[1.4] flex flex-col items-start gap-6 text-left"
+            className="flex-[1.4] flex flex-col items-center lg:items-start gap-6 text-center lg:text-left"
             initial="initial"
             animate="animate"
             variants={{ animate: { transition: { staggerChildren: 0.1 } } }}
           >
+            {/* Badge */}
             <motion.div
               variants={fadeIn}
-              className="flex items-center gap-2 rounded-full bg-[#F5F5F5] p-1 pr-4"
+              className="flex items-center gap-2 rounded-full bg-[#F5F5F5] p-1 pr-4 whitespace-nowrap"
             >
-              <div className="flex -space-x-2 overflow-hidden">
+              <div className="flex -space-x-2 overflow-hidden flex-shrink-0">
                 {[
                   '/Clinsight-Users/handsome-man.jpg',
                   '/User-Report-Images/successful-entrepreneur.png',
@@ -53,6 +54,7 @@ export function Hero() {
               </span>
             </motion.div>
 
+            {/* Heading */}
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -68,6 +70,7 @@ export function Hero() {
               </h1>
             </motion.div>
 
+            {/* Subtext */}
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -80,48 +83,7 @@ export function Hero() {
               </p>
             </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="flex flex-row flex-nowrap items-center justify-center lg:justify-start gap-2 sm:gap-4 w-full overflow-visible"
-            >
-              {/* App Store Button */}
-              <button className="flex flex-1 sm:w-[160px] lg:w-[180px] sm:flex-none h-[48px] sm:h-[52px] lg:h-[55px] items-center justify-center sm:justify-start gap-2 rounded-[12px] bg-[#1B1B1B] px-2 sm:px-4 lg:px-6 py-2 text-white transition-all hover:opacity-90 active:scale-95 cursor-pointer shrink-0">
-                <Image
-                  src="/assets/apple-icon.svg"
-                  alt="App Store"
-                  width={20}
-                  height={20}
-                />
-                <div className="flex flex-col items-start leading-none gap-1">
-                  <span className="text-[8px] lg:text-[10px] opacity-70">
-                    Available on the
-                  </span>
-                  <span className="text-[11px] lg:text-sm font-bold">
-                    App Store
-                  </span>
-                </div>
-              </button>
-              {/* Google Play Button */}
-              <button className="flex flex-1 sm:w-[160px] lg:w-[180px] sm:flex-none h-[48px] sm:h-[52px] lg:h-[55px] items-center justify-center sm:justify-start gap-2 rounded-[12px] bg-[#1B1B1B] px-2 sm:px-4 lg:px-6 py-2 text-white transition-all hover:opacity-90 active:scale-95 cursor-pointer shrink-0">
-                <Image
-                  src="/assets/google-play icon.svg"
-                  alt="Google Play"
-                  width={20}
-                  height={20}
-                />
-                <div className="flex flex-col items-start leading-none gap-1">
-                  <span className="text-[8px] lg:text-[10px] opacity-70">
-                    Get it on
-                  </span>
-                  <span className="text-[11px] lg:text-sm font-bold">
-                    Google Play
-                  </span>
-                </div>
-              </button>
-            </motion.div>
-
+            {/* Disclaimer */}
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -135,7 +97,7 @@ export function Hero() {
 
           {/* Right Column */}
           <motion.div
-            className="relative flex-1 min-h-[420px] sm:min-h-[500px] lg:min-h-[540px] flex items-center justify-center lg:justify-end"
+            className="relative flex-1 min-h-[420px] sm:min-h-[500px] lg:min-h-[540px] flex items-center justify-center"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.4, ease: 'easeOut' }}
@@ -167,7 +129,7 @@ export function Hero() {
                   ease: 'easeInOut',
                   delay: 1,
                 }}
-                className="absolute bottom-[2%] right-[2%] lg:bottom-[5%] lg:right-[8%] z-20 w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 flex items-center justify-center"
+                className="absolute bottom-[8%] right-[10%] lg:bottom-[5%] lg:right-[8%] z-20 w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 flex items-center justify-center"
               >
                 <div className="relative w-full h-full p-2 bg-white rounded-full shadow-md border border-slate-100 flex items-center justify-center">
                   <Image
@@ -289,11 +251,8 @@ export function Hero() {
                   </Button>
                 </div>
               </div>
-              {/* end: Dashboard Content */}
             </motion.div>
-            {/* end: Circle Wrapper */}
           </motion.div>
-          {/* end: Right Column */}
         </div>
       </div>
     </section>
