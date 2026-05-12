@@ -7,3 +7,4 @@ export { VerificationDoctorEmail } from './VerificationDoctorEmail';
 export { VerificationFailedDoctorEmail } from './VerificationFailedDoctorEmail';
 export { WaitlistConfirmationUserEmail } from './WaitlistConfirmationUserEmail';
 export { DoctorReviewSubmittedUserEmail } from './DoctorReviewSubmittedUserEmail';
+export { NewCaseAssignedDoctorEmail } from './NewCaseAssignedDoctorEmail';
