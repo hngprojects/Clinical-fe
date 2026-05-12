@@ -177,22 +177,21 @@ export default function ContactUsPage() {
 
             {errorMessage && (
               <p
-                 role="alert"
-                 aria-live="assertive"
-                 className="-mt-2 text-sm text-red-600"
-               >
-                 {errorMessage}
-               </p>
+                role="alert"
+                aria-live="assertive"
+                className="-mt-2 text-sm text-red-600"
+              >
+                {errorMessage}
+              </p>
             )}
-
             {successMessage && (
-               <p
-                 role="status"
-                 aria-live="polite"
-                 className="-mt-2 text-sm text-green-600"
-               >
-                 {successMessage}
-               </p>
+              <p
+                role="status"
+                aria-live="polite"
+                className="-mt-2 text-sm text-green-600"
+              >
+                {successMessage}
+              </p>
             )}
 
             <button
