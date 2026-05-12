@@ -176,11 +176,23 @@ export default function ContactUsPage() {
             </div>
 
             {errorMessage && (
-              <p className="-mt-2 text-sm text-red-600">{errorMessage}</p>
+              <p
+                 role="alert"
+                 aria-live="assertive"
+                 className="-mt-2 text-sm text-red-600"
+               >
+                 {errorMessage}
+               </p>
             )}
 
             {successMessage && (
-              <p className="-mt-2 text-sm text-green-600">{successMessage}</p>
+               <p
+                 role="status"
+                 aria-live="polite"
+                 className="-mt-2 text-sm text-green-600"
+               >
+                 {successMessage}
+               </p>
             )}
 
             <button

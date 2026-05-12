@@ -4,13 +4,45 @@ import { env } from '@/env/server';
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { firstName, email, message } = body;
+    const firstNameRaw = body?.firstName;
+    const emailRaw = body?.email;
+    const messageRaw = body?.message;
+
+    if (
+      typeof firstNameRaw !== 'string' ||
+      typeof emailRaw !== 'string' ||
+      typeof messageRaw !== 'string'
+    ) {
+      return NextResponse.json(
+        { error: 'First name, email, and message must be strings.' },
+        { status: 400 },
+      );
+    }
+
+    const firstName = firstNameRaw.trim();
+    const email = emailRaw.trim().toLowerCase();
+    const message = messageRaw.trim();
 
     if (!firstName || !email || !message) {
       return NextResponse.json(
         { error: 'First name, email, and message are required.' },
         { status: 400 },
       );
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return NextResponse.json({ error: 'Invalid email address' }, { status: 400 });
+    }
+
+    if (firstName.length > 100) {
+      return NextResponse.json({ error: 'First name is too long' }, { status: 400 });
+    }
+    if (email.length > 254) {
+      return NextResponse.json({ error: 'Email is too long' }, { status: 400 });
+    }
+    if (message.length > 2000) {
+      return NextResponse.json({ error: 'Message is too long' }, { status: 400 });
     }
 
     const endpoint = env.API_BASE_URL
