@@ -16,68 +16,67 @@ jobs:
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.STAGING_HOST }}
-          username: ${{ secrets.STAGING_USER }}
+          username: ubuntu
           key: ${{ secrets.STAGING_SSH_KEY }}
           script: |
             set -e
 
-            BRANCH="${{ github.event.workflow_run.head_branch }}"
-            APP_DIR="/home/device_clinical_support/clinical-fe/staging"
-            PM2_APP="clinical-fe-staging"
-            PORT="3001"
+            cat > /home/device_clinical_support/clinical-fe/staging/.env << EOF
+            NEXT_PUBLIC_API_URL=${{ secrets.STAGING_API_URL }}
+            NEXT_PUBLIC_ENV=staging
+            EOF
 
-            echo "Deploying branch $BRANCH to $APP_DIR"
+            sudo -u device_clinical_support bash << 'DEPLOY'
+              export PATH="/home/device_clinical_support/.local/bin:/usr/local/bin:$PATH"
+              cd /home/device_clinical_support/clinical-fe/staging
+              git fetch origin
+              git checkout staging
+              git reset --hard origin/staging
+              pnpm install --frozen-lockfile
+              pnpm build
+              if pm2 describe "clinical-fe-staging" > /dev/null 2>&1; then
+                pm2 restart "clinical-fe-staging"
+              else
+                pm2 start "pnpm start -- -p 3001" --name "clinical-fe-staging"
+              fi
+              pm2 save
+            DEPLOY
 
-            cd "$APP_DIR"
-
-            git fetch origin
-            git checkout "$BRANCH"
-            git reset --hard "origin/$BRANCH"
-
-            pnpm install --frozen-lockfile
-            pnpm build
-
-            if pm2 describe "$PM2_APP" > /dev/null 2>&1; then
-              pm2 restart "$PM2_APP"
-            else
-              pm2 start "pnpm start -- -p $PORT" --name "$PM2_APP"
-            fi
-
-            pm2 save
+            echo "Staging deployed successfully"
 
   deploy-production:
     if: github.event.workflow_run.head_branch == 'main' && github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
+    environment: production
     steps:
       - name: Deploy to Production
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.PRODUCTION_HOST }}
-          username: ${{ secrets.PRODUCTION_USER }}
+          username: ubuntu
           key: ${{ secrets.PRODUCTION_SSH_KEY }}
           script: |
             set -e
 
-            BRANCH="${{ github.event.workflow_run.head_branch }}"
-            APP_DIR="/home/device_clinical_support/clinical-fe/prod"
-            PM2_APP="clinical-fe-prod"
-            PORT="3000"
+            cat > /home/device_clinical_support/clinical-fe/prod/.env << EOF
+            NEXT_PUBLIC_API_URL=${{ secrets.PRODUCTION_API_URL }}
+            NEXT_PUBLIC_ENV=production
+            EOF
 
-            echo "Deploying branch $BRANCH to $APP_DIR"
+            sudo -u device_clinical_support bash << 'DEPLOY'
+              export PATH="/home/device_clinical_support/.local/bin:/usr/local/bin:$PATH"
+              cd /home/device_clinical_support/clinical-fe/prod
+              git fetch origin
+              git checkout main
+              git reset --hard origin/main
+              pnpm install --frozen-lockfile
+              pnpm build
+              if pm2 describe "clinical-fe-prod" > /dev/null 2>&1; then
+                pm2 restart "clinical-fe-prod"
+              else
+                pm2 start "pnpm start -- -p 3000" --name "clinical-fe-prod"
+              fi
+              pm2 save
+            DEPLOY
 
-            cd "$APP_DIR"
-
-            git fetch origin
-            git checkout "$BRANCH"
-            git reset --hard "origin/$BRANCH"
-
-            pnpm install --frozen-lockfile
-            pnpm build
-
-            if pm2 describe "$PM2_APP" > /dev/null 2>&1; then
-              pm2 restart "$PM2_APP"
-            else
-              pm2 start "pnpm start -- -p $PORT" --name "$PM2_APP"
-            fi
-
-            pm2 save
+            echo "Production deployed successfully"
