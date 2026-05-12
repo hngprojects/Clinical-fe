@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     default: env.NEXT_PUBLIC_APP_NAME,
     template: `%s · ${env.NEXT_PUBLIC_APP_NAME}`,
   },
-  description: `${env.NEXT_PUBLIC_APP_NAME} — a Next.js 16 starter.`,
+  description: `${env.NEXT_PUBLIC_APP_NAME} — AI-powered health assistant for interpreting lab results and connecting with doctors.`,
 };
 
 export default function RootLayout({

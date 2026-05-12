@@ -1,17 +1,14 @@
-import HeaderBackgroundPatternDesktop from '@public/circle-bg-web.png';
-import HeaderBackgroundPatternMobile from '@public/circle-bg.png';
-
 export const PRIVACY_POLICY_LAST_UPDATE = 'May 2026';
 
 export const HEADERBACKGROUND_PATTERN = [
   {
     type: 'mobile',
-    src: HeaderBackgroundPatternMobile,
+    src: '/circle-bg.png',
     visibility: 'md:hidden',
   },
   {
     type: 'desktop',
-    src: HeaderBackgroundPatternDesktop,
+    src: '/circle-bg-web.png',
     visibility: 'hidden md:block',
   },
 ];
