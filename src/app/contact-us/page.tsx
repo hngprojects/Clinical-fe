@@ -64,20 +64,24 @@ export default function ContactUsPage() {
       });
 
       if (!response.ok) {
-        const payload = (await response.json().catch(() => null)) as
-          | { error?: string }
-          | null;
+        const payload = (await response.json().catch(() => null)) as {
+          error?: string;
+        } | null;
 
         throw new Error(payload?.error || 'Failed to send message.');
       }
 
-      setSuccessMessage('Message sent successfully. We will get back to you soon.');
+      setSuccessMessage(
+        'Message sent successfully. We will get back to you soon.',
+      );
       setFirstName('');
       setEmail('');
       setMessage('');
     } catch (error) {
       setErrorMessage(
-        error instanceof Error ? error.message : 'Something went wrong. Please try again.',
+        error instanceof Error
+          ? error.message
+          : 'Something went wrong. Please try again.',
       );
     } finally {
       setIsLoading(false);
@@ -116,7 +120,10 @@ export default function ContactUsPage() {
           <p className="text-sm text-gray-500">
             Fill out the form and we’ll reach shortly.
           </p>
-          <form className="mt-7.5 flex flex-col gap-7.5" onSubmit={handleSubmit}>
+          <form
+            className="mt-7.5 flex flex-col gap-7.5"
+            onSubmit={handleSubmit}
+          >
             {/* First Name */}
             <div className="flex flex-col gap-2">
               <label className="text-sm font-medium text-[#101828]">
