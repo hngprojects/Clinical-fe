@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>New case assigned to you</title>
+    <link rel="stylesheet" href="email-template.css" />
+  </head>
+  <body class="email-body">
+    <!-- Subject: New case assigned to you -->
+    <div class="email-container">
+      <h1 class="email-header">New case assigned to you</h1>
+      <p class="email-paragraph">Dr. {{lastName}},</p>
+      <p class="email-paragraph">
+        A patient has requested a second opinion, and the case has been assigned
+        to you.
+      </p>
+      <p class="email-paragraph">
+        <a class="email-button button-green" href="{{caseLink}}"
+          >Accept or reject the case</a
+        >
+      </p>
+      <div class="alert-yellow">
+        <p class="email-small">
+          If you do not accept the case in {{timeLimit}} it will be
+          automatically rejected.
+        </p>
+      </div>
+      <div class="email-footer">
+        <p>The Clinsight Team</p>
+        <p>© 2026 Clinsight. All rights reserved</p>
+      </div>
+    </div>
+  </body>
+</html>

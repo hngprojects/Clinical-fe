@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export default function AboutStory() {
   return (
-    <section className="mx-auto flex max-w-7xl flex-col lg:flex-row items-center justify-between gap-12 px-6 py-12">
+    <section className="mx-auto flex max-w-7xl flex-col lg:flex-row items-center justify-between gap-10 px-4 py-8 sm:px-6 md:gap-12 md:py-12">
       <div className="flex w-full lg:max-w-158.25 flex-col items-start justify-start gap-6">
         <div className="flex items-center gap-2 text-xl font-medium uppercase text-[#F59E0B]">
           <span className="h-3.5 w-3.5 shrink-0 bg-[#F59E0B]" />
@@ -15,7 +15,7 @@ export default function AboutStory() {
         </h2>
         <div className="flex flex-col gap-6 text-base font-normal leading-6 text-[#5E5E5E]">
           <p>
-            Clinsights started after our founders watched family members leave
+            Clinsight started after our founders watched family members leave
             clinics holding lab printouts they couldn&apos;t read. Doctors were
             stretched thin. Patients were left guessing.
           </p>
@@ -31,9 +31,9 @@ export default function AboutStory() {
         </div>
       </div>
 
-      <div className="flex w-full lg:w-auto items-center justify-center gap-4 sm:gap-6">
-        <div className="flex flex-col gap-4 sm:gap-6">
-          <div className="relative h-[160px] w-[190px] sm:h-[199px] sm:w-[236px] overflow-hidden rounded-xl bg-gray-100">
+      <div className="grid w-full max-w-[560px] grid-cols-[0.88fr_1fr] items-center gap-3 sm:gap-6 lg:w-auto lg:max-w-none">
+        <div className="flex min-w-0 flex-col gap-3 sm:gap-6">
+          <div className="relative aspect-[236/199] w-full overflow-hidden rounded-xl bg-gray-100">
             <Image
               src="/front-view-smiley-female-doctor-clinic 1.png"
               alt="Doctor"
@@ -41,7 +41,7 @@ export default function AboutStory() {
               className="object-cover"
             />
           </div>
-          <div className="relative h-[160px] w-[190px] sm:h-[199px] sm:w-[236px] overflow-hidden rounded-xl bg-gray-100">
+          <div className="relative aspect-[236/199] w-full overflow-hidden rounded-xl bg-gray-100">
             <Image
               src="/side-view-illustrator-drawing-tablet 1.png"
               alt="Illustrator"
@@ -51,8 +51,8 @@ export default function AboutStory() {
           </div>
         </div>
 
-        <div className="flex flex-col gap-4 sm:gap-6">
-          <div className="relative h-[200px] w-[230px] sm:h-[264px] sm:w-[286px] overflow-hidden rounded-xl bg-gray-100">
+        <div className="flex min-w-0 flex-col gap-3 sm:gap-6">
+          <div className="relative aspect-[286/264] w-full overflow-hidden rounded-xl bg-gray-100">
             <Image
               src="/image 121.png"
               alt="MRI scan"
@@ -60,7 +60,7 @@ export default function AboutStory() {
               className="object-cover"
             />
           </div>
-          <div className="relative h-[200px] w-[230px] sm:h-[264px] sm:w-[286px] overflow-hidden rounded-xl bg-gray-100">
+          <div className="relative aspect-[286/264] w-full overflow-hidden rounded-xl bg-gray-100">
             <Image
               src="/doctor-nurse-helping-wheelchair-user 1.png"
               alt="Wheelchair help"

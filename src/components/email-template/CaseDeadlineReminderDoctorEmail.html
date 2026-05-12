@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Reminder: Case deadline approaching</title>
+    <link rel="stylesheet" href="email-template.css" />
+  </head>
+  <body class="email-body">
+    <!-- Subject: Reminder: Case deadline approaching -->
+    <div class="email-container">
+      <h1 class="email-header">Reminder: Case deadline approaching</h1>
+      <p class="email-paragraph">Dr. {{lastName}},</p>
+      <p class="email-paragraph">
+        You have a pending case that requires your response.
+      </p>
+      <div class="email-section">
+        <div class="email-paragraph">
+          <span class="email-small">Assigned:</span>
+          <br />
+          <strong>{{assignedTime}}</strong>
+        </div>
+        <div class="email-paragraph">
+          <span class="email-small">Deadline:</span>
+          <br />
+          <strong>{{deadline}}</strong>
+        </div>
+      </div>
+      <div class="alert-red">
+        <p class="email-small">
+          If no response is received within the deadline, the case will be
+          reassigned to another doctor.
+        </p>
+      </div>
+      <p class="email-paragraph">
+        Please log in and complete your review as soon as possible.
+      </p>
+      <p class="email-paragraph">
+        <a class="email-button button-green" href="{{casesLink}}"
+          >Go to pending cases</a
+        >
+      </p>
+      <div class="email-footer">
+        <p>The Clinsight Team</p>
+        <p>© 2026 Clinsight. All rights reserved</p>
+      </div>
+    </div>
+  </body>
+</html>
