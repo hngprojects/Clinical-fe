@@ -6,7 +6,6 @@ import Image from 'next/image';
 const FOOTER_LINKS = {
   platform: [
     { name: 'How It Works', href: '/how-it-works' },
-    { name: 'For Doctors', href: '#become-a-doctor' },
     { name: 'Join Waitlist', href: '/waitlist' },
   ],
   company: [
