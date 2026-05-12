@@ -5,16 +5,15 @@ import Image from 'next/image';
 
 const FOOTER_LINKS = {
   platform: [
-    { name: 'How It Works', href: '#how-it-works' },
-    { name: 'For Doctors', href: '#become-a-doctor' },
-    { name: 'Join Waitlist', href: '#' },
+    { name: 'How It Works', href: '/how-it-works' },
+    { name: 'Join Waitlist', href: '/waitlist' },
   ],
   company: [
-    { name: 'About', href: '#' },
-    { name: 'Contact', href: '#' },
+    { name: 'About', href: '/about' },
+    { name: 'Contact', href: '/contact-us' },
   ],
   legal: [
-    { name: 'Privacy Policy', href: '#' },
+    { name: 'Privacy Policy', href: '/privacy-policy' },
     { name: 'Terms and Conditions', href: '/terms-and-conditions' },
   ],
 };
