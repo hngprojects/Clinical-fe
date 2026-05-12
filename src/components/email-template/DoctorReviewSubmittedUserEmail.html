@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Your doctor has submitted their review</title>
+    <link rel="stylesheet" href="email-template.css" />
+  </head>
+  <body class="email-body">
+    <!-- Subject: Your doctor has submitted their review -->
+    <div class="email-container">
+      <h1 class="email-header">Your doctor has submitted their review</h1>
+      <p class="email-paragraph">Hi {{firstName}},</p>
+      <p class="email-paragraph email-bold text-green-600">
+        Good news!!! Your doctor has reviewed your lab result and their response
+        is ready.
+      </p>
+      <div class="alert-blue">
+        <p class="email-section-title">Your doctor has submitted:</p>
+        <ul class="email-list">
+          <li>A clinical explanation of your results in plain language</li>
+          <li>A risk clarification (if needed)</li>
+          <li>Recommended next steps for you</li>
+        </ul>
+      </div>
+      <p class="email-paragraph">
+        <a class="email-button button-blue" href="{{reviewLink}}"
+          >View your doctor&#39;s review</a
+        >
+      </p>
+      <div class="alert-yellow">
+        <p class="email-small">
+          Please note: this review is for guidance only and does not replace an
+          in-person consultation for serious concerns.
+        </p>
+      </div>
+      <div class="email-footer">
+        <p>The Clinsight Team</p>
+        <p>© 2026 Clinsight. All rights reserved</p>
+      </div>
+    </div>
+  </body>
+</html>
